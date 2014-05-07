@@ -1,9 +1,42 @@
+<!doctype html>
 <html>
-<head>
-	<title>Inscription</title>
-	<link rel="stylesheet" type="text/css" href="/css/inscription.css">
-</head>
-<body>
-Inscription
-</body>
+	<head>
+		<title>Inscription</title>
+		<link rel="stylesheet" type="text/css" href="/css/inscription.css">
+	</head>
+	<body>
+		<div class='container'>
+			<h1>Inscription</h1>
+			<form id='connexionForm' action='/core/model'>
+				<label>Adresse mail
+					<input type='email' name='email_adresse' placeholder='Adresse mail'>
+				</label>
+				<label>Nom
+					<input type='password' name='password' placeholder='Nom'>
+				</label>
+				<label>Prénom
+					<input type='password' name='password' placeholder='Prénom'>
+				</label>
+				<label>Adresse postale
+					<input type='password' name='password' placeholder='Adresse postale'>
+				</label>
+				<label>Code postal
+					<input type='password' name='password' placeholder='Code postal'>
+				</label>
+				<label>Numéro de téléphone
+					<input type='password' name='password' placeholder='Numéro de téléphone'>
+				</label>
+				<label>Mot de passe
+					<input type='password' name='password' placeholder='Mot de passe'>
+				</label>
+				<label>Vérification du mot de passe
+					<input type='password' name='password' placeholder='Vérification du mot de passe'>
+				</label>
+				<input type='button' value='Valider'>
+			</form>
+			<a href='/lastPassword'>Mot de passe oublié</a>
+			<a href='/inscription'>Inscription</a>
+		</div>
+		<script type="text/javascript" src='/js/inscription.js'></script>
+	</body>
 </html>
