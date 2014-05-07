@@ -1,9 +1,9 @@
 module.exports = function(app, rootDir){
 	var isConnected = true;
-	console.log(rootDir + '\\views\\index.html');
+	
 	if(isConnected){
 		app.get('/', function (req, res) {
-		    res.sendfile(rootDir + '\\views\\index.html');
+		    res.sendfile(rootDir + '\\views\\home.html');
 		})
 
 		.get('/addCar', function (req, res) {
