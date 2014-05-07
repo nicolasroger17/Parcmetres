@@ -8,17 +8,19 @@
 	<body>
 		<div class='container'>
 			<h1>Connexion</h1>
-			<form id='connexionForm' action='/core/model'>
+			<form id='connexionForm' method='post' action='/connexion'>
 				<label>Adresse mail
 					<input type='email' name='email_adresse' placeholder='Adresse mail'>
 				</label>
 				<label>Mot de passe
 					<input type='password' name='password' placeholder='Mot de passe'>
 				</label>
-				<input type='button' value='Connexion'>
+				<input type='submit' value='Connexion'>
 			</form>
 			<a href='/lastPassword'>Mot de passe oublié</a>
-			<a href='/inscription'><input type='button' value='Inscription'></a>
+			<a href='/Inscription'><input type='button' value='Inscription'></a>
 		</div>
+		<script type="text/javascript" src='/js/jquery.js'></script>
+		<script type="text/javascript" src='/js/connexion.js'></script>
 	</body>
 </html>

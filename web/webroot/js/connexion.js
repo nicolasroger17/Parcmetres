@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$("#inscriptionForm").submit(function(){
+	$("#connexionForm").submit(function(){
 		$("input[name='password']").val(sha1($("input[name='password']").val()));
 	});
 });
