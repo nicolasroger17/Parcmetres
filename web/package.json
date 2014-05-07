@@ -1,0 +1,35 @@
+{
+  "name": "parcmetres",
+  "version": "1.0.0",
+  "description": "Pay your parcmetre with your mobile",
+  "keywords": [
+    "Node.js",
+    "application",
+    "parcmetre"
+  ],
+  "author": {
+    "name": "Nicolas",
+    "email": "ramr@example.org",
+    "url": "http://www.openshift.com/"
+  },
+  "homepage": "http://www.openshift.com/",
+
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+
+  "dependencies": {
+    "express": "~3.4.8",
+    "ent": "~0.1.0",
+    "ejs": "~1.0.0",
+    "node-mysql": "~2.2.0",
+    "express-session": "~1.0.4",
+    "connect-redis": "~2.0.0"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+
+  "private": false,
+  "main": "app.js"
+}
