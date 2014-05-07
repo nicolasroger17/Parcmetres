@@ -1,9 +1,22 @@
+<!doctype html>
 <html>
-<head>
-	<title>Connexion</title>
-	<link rel="stylesheet" type="text/css" href="../css/connexion.css">
-</head>
-<body>
-Connexion
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Connexion</title>
+		<link rel="stylesheet" type="text/css" href="/css/connexion.css">
+	</head>
+	<body>
+		<div class='container'>
+			<h1>Connexion</h1>
+			<form id='connexionForm' action='/core/model'>
+				<label>Adresse mail</label>
+				<input type='email' name='email_adresse' placeholder='Adresse mail'>
+				<label>Mot de passe</label>
+				<input type='password' name='password' placeholder='Mot de passe'>
+				<input type='button' value='Connexion'>
+			</form>
+			<a href='/lastPassword'>Mot de passe oublié</a>
+			<a href='/inscription'>Inscription</a>
+		</div>
+	</body>
 </html>

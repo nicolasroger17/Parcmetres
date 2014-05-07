@@ -14,7 +14,7 @@ app.use('/webroot', express.static(__dirname + '/webroot'))
 .use(express.bodyParser())
 .use(express.session());
 
-dispatcher = require('./core/dispatcher.js')(app, __dirname);
+dispatcher = require('./core/dispatcher.js')(app);
 
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;

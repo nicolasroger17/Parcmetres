@@ -1,34 +1,38 @@
-module.exports = function(app, rootDir){
-	var isConnected = true;
-	
+module.exports = function(app){
+	var isConnected = false;
+
 	if(isConnected){
 		app.get('/', function (req, res) {
-		    res.sendfile(rootDir + '\\views\\home.html');
+		    res.sendfile('views\\home.html');
+		})
+
+		app.get('/home', function (req, res) {
+		    res.sendfile('views\\home.html');
 		})
 
 		.get('/addCar', function (req, res) {
-		    res.sendfile(rootDir + '\\views\\addCar.html');
+		    res.sendfile('views\\addCar.html');
 		})
 
 		.get('/start', function (req, res) {
-		    res.sendfile(rootDir + '\\views\\start.html');
+		    res.sendfile('views\\start.html');
 		});
 	}
 	else{
 		app.get('/', function (req, res) {
-		    res.sendfile(rootDir + '\\views\\connexion.html');
+		    res.sendfile('views\\connexion.html');
 		})		
 
 		.get('/inscription', function (req, res) {
-		    res.sendfile(rootDir + '\\views\\inscription.html');
+		    res.sendfile('views\\inscription.html');
 		})
 
 		.get('/connexion', function (req, res) {
-		    res.sendfile(rootDir + '\\views\\connexion.html');
+		    res.sendfile('views\\connexion.html');
 		});
 	}
 
 	app.use(function(req, res, next){
-	    res.sendfile(rootDir + '\\views\\connexion.html');
+	    res.sendfile('views\\connexion.html');
 	});
 }
