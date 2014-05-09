@@ -6,7 +6,7 @@ var config = {
 		password : '',
 	},
 	default: {
-		host     : 'localhost',
+		host     : 'distant',
 		database : 'parcmetres',
 		user     : 'root',
 		password : '',

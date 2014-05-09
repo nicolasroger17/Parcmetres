@@ -1,22 +1,30 @@
 var express = require('express'),
     app = express(),
-    server = require('http').createServer(app),
+    path = require('path'),
+    server = require('http'),
     ent = require('ent'), // Permet de bloquer les caractères HTML (sécurité équivalente à htmlentities en PHP)
-    session = require('express-session'),
-    RedisStore = require('connect-redis')(session);
+    fs = require('fs');
 
-app.use('/webroot', express.static(__dirname + '/webroot'))
-.use('/images', express.static(__dirname + '/webroot/images'))
-.use('/css', express.static(__dirname + '/webroot/css'))
-.use('/js', express.static(__dirname + '/webroot/js'))
+app.set('port', process.env.PORT || 8080)
+.set('views', __dirname + '/views')
+.set('view engine', 'ejs')
+.use(express.favicon())
+.use(express.logger('dev'))
+.use(express.bodyParser())
+.use(express.methodOverride())
+.use(express.cookieParser('parcmetresSecretCookie'))
+.use(express.session())
+.use(app.router)
+.use('/webroot', express.static(__dirname + '/webroot'));
 
-.use(express.cookieParser('parcmetres'))
-.use(express.session());
+// dynamically include routes (Controller)
+fs.readdirSync('./controllers').forEach(function (file) {
+  if(file.substr(-3) == '.js') {
+      route = require('./controllers/' + file);
+      route.controller(app);
+  }
+});
 
-dispatcher = require('./core/dispatcher.js')(app, express);
-
-var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
-var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-server.listen( port, ipaddress, function() {
-    console.log((new Date()) + ' Server is listening on port '+ port);
+server.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
 });
