@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Ajouter une voiture</title>
+		<link rel="stylesheet" type="text/css" href="/webroot/css/addCar.css">
+	</head>
+	<body>
+		<div class='container'>
+			<h1>Ajouter une voiture</h1>
+			<form method='post' action='/addCar' enctype="multipart/form-data">
+				<label>Nom de la voiture
+					<input type='type' name='name' placeholder='Nom de la voiture'>
+				</label>
+				<label>Plaque d'immatriculation
+					<input type='text' name='registrationPlate' placeholder="Plaque d'immatriculation">
+				</label>
+				<label>Carte grise
+					<input type='file' name='registrationFile'>
+				</label>
+				<p>Facultatif</p>
+				<label>Photo de la voiture
+					<input type='file' name='photo'>
+				</label>
+				<input type='submit' value='Valider'>
+			</form>
+		</div>
+		<script type="text/javascript" src='/webroot/js/jquery.js'></script>
+		<script type="text/javascript" src='/webroot/js/addCar.js'></script>
+	</body>
+</html>

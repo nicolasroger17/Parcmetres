@@ -2,13 +2,12 @@ var model = require('../models/user');
 
 module.exports.controller = function(app) {
 
-	/**
-	* a home page route
-	*/
 	app.get('/myAccount', function(req, res) {
-	  // any logic goes here
-	  res.render('user/myAccount')
+	  res.render('user/myAccount');
 	});
 
+	app.get('/start', function(req, res) {
+	  res.render('user/start');
+	});
 
 }

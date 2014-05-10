@@ -16,7 +16,7 @@ var inscription = function(req, res){
 		// if no error
 		if(err==null){
 			// if the mail address is free
-			if(result.length == 0){
+			if(result.length == 0 && allFieldsSet(req.body)){
 				var query = connection.query('INSERT INTO users SET ?', req.body, function(err, result) {
 					if(err == null){
 						res.writeHead(301,
@@ -46,6 +46,11 @@ var inscription = function(req, res){
 			res.end();
 		}
 	});
+}
+
+function allFieldsSet(req){
+	// todo
+	return true;
 }
 
 var	connexion = function(req, res){

@@ -2,11 +2,11 @@ var model = require('../models/home');
 
 module.exports.controller = function(app) {
 	app.get('/', function(req, res) {
-		home(app, req, res);
+		home(req, res);
 	});
 
 	app.get('/home', function(req, res) {
-		home(app, req, res);
+		home(req, res);
 	});
 
 	app.get('/connexion', function(req, res) {
@@ -26,12 +26,15 @@ module.exports.controller = function(app) {
 	});
 }
 
-function home(app, req, res){
+function home(req, res){
 	if(req.session.sessionID){
-		res.render('home/home');	
+		res.render('home/home',{firstName: req.session.firstName, lastName: req.session.lastName});	
 	}
 	else{
-		connexion(app, req, res);
+		res.writeHead(301,
+		  {Location: '/connexion'}
+		);
+		res.end();
 	}
 }
 
