@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 07, 2014 at 03:20 PM
+-- Generation Time: May 11, 2014 at 03:24 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -27,10 +27,17 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `cars` (
-  `registrationPlate` varchar(10) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `status` varchar(20) NOT NULL
+  `registrationPlate` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `name` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `status` varchar(20) CHARACTER SET utf8 NOT NULL DEFAULT 'free'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cars`
+--
+
+INSERT INTO `cars` (`registrationPlate`, `name`, `status`) VALUES
+('859AA966', 'Ferrari', 'free');
 
 -- --------------------------------------------------------
 
@@ -74,9 +81,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lastName` varchar(30) NOT NULL,
   `firstName` varchar(30) NOT NULL,
   `emailAddress` varchar(50) NOT NULL,
-  `phone` int(10) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `zipCode` int(6) NOT NULL,
+  `phone` varchar(12) NOT NULL,
+  `password` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `lastName`, `firstName`, `emailAddress`, `address`, `zipCode`, `phone`, `password`) VALUES
+(1, 'ROGER', 'Nicolas', 'bellerauphon@hotmail.fr', '18 rue des quatre vents', 75006, '2147483647', '7c4a8d09ca3762af61e59520943dc26494f8941b');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
