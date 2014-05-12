@@ -17,7 +17,8 @@ var myInformations = function(req, res){
 	var query = connection.query('SELECT * FROM users where id= ?', [req.session.sessionID], function(err, result){
 		// if no error
 		if(!err){
-			res.render('user/myInformations', {infos : result[0]});
+			console.log(result[0]);
+			res.render('user/myInformations', {infos : result[0].lastName});
 		}
 		else{
 			res.writeHead(301,
