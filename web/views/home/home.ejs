@@ -5,9 +5,13 @@
 	</head>
 	<body>
 		<h1>Home</h1>
-		<p>Bonjour <%= firstName %> <%=lastName %></p>
-		<a href='/myInformations'>Mes informations</a>
-		<a href='/myCars'>Gérer mes voitures</a>
-		<a href='/start'>Démarrer</a>
+			<p>Bonjour <%= firstName %> <%=lastName %></p>
+			<div id="cssmenu">
+				<ul>
+					<li class='active'><a href='/myInformations'><span>Mes informations</span></a></li>
+					<li><a href='/myCars'><span>Gérer mes voitures</span></a></li>
+					<li class='last'><a href='/start'><span>Démarrer</span></a></li>
+				</ul>
+			</div>
 	</body>
 </html>
