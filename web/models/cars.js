@@ -112,7 +112,7 @@ var myCars = function(req, res){
 								 'LEFT JOIN users ON users.id = '+req.session.sessionID, function(err, result){
 		console.log(result);
 		if(!err){
-			res.render('cars/myCars',{cars: result});
+			res.render('cars/myCars', {cars: result});
 		}
 		else{
 			res.writeHead(301,

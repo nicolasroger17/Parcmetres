@@ -19,7 +19,7 @@ var myInformations = function(req, res){
 		// if no error
 		if(!err){
 			console.log(result[0]);
-			res.render('user/myInformations', {infos : result[0].lastName});
+			res.render('user/myInformations', {user : result[0]});
 		}
 		else{
 			res.writeHead(301,
@@ -29,3 +29,5 @@ var myInformations = function(req, res){
 		}
 	});
 }
+
+exports.myInformations = myInformations;

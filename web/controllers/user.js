@@ -4,7 +4,7 @@ module.exports.controller = function(app) {
 
 	app.get('/myInformations', function(req, res) {
 		if(req.session.sessionID){
-			res.render('user/myInformations');
+			model.myInformations(req, res);
 		}
 		else{
 			res.writeHead(301,
