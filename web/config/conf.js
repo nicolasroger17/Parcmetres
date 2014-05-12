@@ -4,14 +4,14 @@ var config = {
 		database : 'parcmetres',
 		user     : 'root',
 		password : '',
-		port     :  8080
+		port     :  8888
 	},
 	default: {
 		host     : 'distant',
 		database : 'parcmetres',
 		user     : 'root',
 		password : '',
-		port     :  8080
+		port     :  8888
 	}
 }
 module.exports = function(mode) {
