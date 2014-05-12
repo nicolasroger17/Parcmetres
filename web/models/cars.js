@@ -110,8 +110,6 @@ var myCars = function(req, res){
 								 'LEFT JOIN usercar ON cars.registrationPlate = usercar.registrationPlate '+
 								 'LEFT JOIN users ON users.id = '+req.session.sessionID, function(err, result){
 		if(!err){
-			console.log(result);
-			console.log(req.session.sessionID);
 			res.render('cars/myCars',{name: result[0].name, registrationPlate: result[0].registrationPlate});
 		}
 		else{

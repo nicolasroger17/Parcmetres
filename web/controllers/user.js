@@ -2,9 +2,21 @@ var model = require('../models/user');
 
 module.exports.controller = function(app) {
 
-	app.get('/myAccount', function(req, res) {
+	app.get('/myInformations', function(req, res) {
 		if(req.session.sessionID){
-			res.render('user/myAccount');
+			res.render('user/myInformations');
+		}
+		else{
+			res.writeHead(301,
+			  {Location: '/'}
+			);
+			res.end();
+		}
+	});
+
+	app.get('/myCredit', function(req, res) {
+		if(req.session.sessionID){
+			res.render('user/myCredit');
 		}
 		else{
 			res.writeHead(301,
