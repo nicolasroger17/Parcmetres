@@ -4,10 +4,11 @@ var mysql = require('mysql'),
 	path = require('path');
 
 var connection = mysql.createConnection({
+	port	 : conf.port,
 	host     : conf.host,
 	database : conf.database,
 	user     : conf.user,
-	password : conf.password, port : conf.port
+	password : conf.password,
 });
 
 connection.connect();

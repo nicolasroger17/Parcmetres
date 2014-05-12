@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Modifier les informations de la voiture</title>
+		<link rel="stylesheet" type="text/css" href="/webroot/css/modifyCar.css">
+	</head>
+	<body>
+		<div class='container'>
+			<h1>Mes voitures</h1>
+			<form method='post' action='modifyCar'>
+				<img style='width: 300px;' <%= "src=/webroot/images/"+car.registrationPlate+"/photo.jpg" %> >
+				<input type='file' name='photo'>
+				<img style='width: 300px;' <%= "src=/webroot/images/"+car.registrationPlate+"/registrationFile.jpg" %> >
+				<input type='file' name='registrationFile'>
+				<input type='text' name='name' value=<%= car.name %>>
+				<input type='text' name='registrationPlate' value=<%= car.registrationPlate %>>
+		</div>
+		<script type="text/javascript" src='/webroot/js/jquery.js'></script>
+		<script type="text/javascript" src='/webroot/js/addCar.js'></script>
+	</body>
+</html>
