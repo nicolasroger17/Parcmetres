@@ -3,13 +3,15 @@ var config = {
 		host     : 'localhost',
 		database : 'parcmetres',
 		user     : 'root',
-		password : '',
+		password : 'root',
+		port     :  8888
 	},
 	default: {
 		host     : 'distant',
 		database : 'parcmetres',
 		user     : 'root',
-		password : '',
+		password : 'root',
+		port     :  8888
 	}
 }
 module.exports = function(mode) {
