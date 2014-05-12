@@ -3,14 +3,14 @@ var config = {
 		host     : 'localhost',
 		database : 'parcmetres',
 		user     : 'root',
-		password : 'root',
+		password : '',
 		port     :  8080
 	},
 	default: {
 		host     : 'distant',
 		database : 'parcmetres',
 		user     : 'root',
-		password : 'root',
+		password : '',
 		port     :  8080
 	}
 }

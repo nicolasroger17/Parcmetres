@@ -110,8 +110,45 @@ var myCars = function(req, res){
 	var query = connection.query('SELECT cars.name, cars.registrationPlate FROM cars '+
 								 'LEFT JOIN usercar ON cars.registrationPlate = usercar.registrationPlate '+
 								 'LEFT JOIN users ON users.id = '+req.session.sessionID, function(err, result){
+		console.log(result);
 		if(!err){
-			res.render('cars/myCars',{name: result[0].name, registrationPlate: result[0].registrationPlate});
+			res.render('cars/myCars',{cars: result});
+		}
+		else{
+			res.writeHead(301,
+				{Location: '/home'}
+			);
+			res.end();
+		}
+	});
+}
+
+var modifyCar = function(req, res){
+	// check if a user with the same mail address exists
+	var query = connection.query('SELECT cars.name, cars.registrationPlate FROM cars '+
+								 'LEFT JOIN usercar ON cars.registrationPlate = usercar.registrationPlate '+
+								 'LEFT JOIN users ON users.id = '+req.session.sessionID, function(err, result){
+		console.log(result);
+		if(!err){
+			res.render('cars/myCars',{cars: result});
+		}
+		else{
+			res.writeHead(301,
+				{Location: '/home'}
+			);
+			res.end();
+		}
+	});
+}
+
+var deleteCar = function(req, res){
+	// check if a user with the same mail address exists
+	var query = connection.query('SELECT cars.name, cars.registrationPlate FROM cars '+
+								 'LEFT JOIN usercar ON cars.registrationPlate = usercar.registrationPlate '+
+								 'LEFT JOIN users ON users.id = '+req.session.sessionID, function(err, result){
+		console.log(result);
+		if(!err){
+			res.render('cars/myCars',{cars: result});
 		}
 		else{
 			res.writeHead(301,
@@ -124,3 +161,5 @@ var myCars = function(req, res){
 
 exports.addCar = addCar;
 exports.myCars = myCars;
+exports.modifyCar = modifyCar;
+exports.deleteCar = deleteCar;
