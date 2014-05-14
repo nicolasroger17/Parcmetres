@@ -17,10 +17,11 @@
 					<input type='text' name='registrationPlate' placeholder='registrationPlate'
 					value='<%= cars[i].registrationPlate %>' disabled>
 					<input type='submit' value='modifier'>
-					<a href=<%= '/deleteCar?registrationPlate=' + cars[i].registrationPlate %>>
-						<input type='button' value='Supprimer'>
-					</a>
 				</form>
+				<form method='post' action='/deleteCar'>
+					<input type='hidden' name='registrationPlate' value=<%= cars[i].registrationPlate %>>
+					<input type='submit' value='Supprimer'>
+				</form>				
 			<% } %>
 		</div>
 		<script type="text/javascript" src='/webroot/js/jquery.js'></script>

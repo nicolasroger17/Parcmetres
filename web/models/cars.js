@@ -186,21 +186,49 @@ var modifyCar = function(req, res){
 }
 
 var deleteCar = function(req, res){
+	console.log(req.body);
 	// check if a user with the same mail address exists
-	var query = connection.query('SELECT cars.name, cars.registrationPlate FROM cars '+
-								 'LEFT JOIN usercar ON cars.registrationPlate = usercar.registrationPlate '+
-								 'LEFT JOIN users ON users.id = '+req.session.sessionID, function(err, result){
-		if(!err){
-			res.render('cars/myCars',{cars: result});
-		}
-		else{
-			res.writeHead(301,
-				{Location: '/home'}
-			);
-			res.end();
+	var query = connection.query('SELECT * FROM usercar WHERE registrationPlate = ?', req.body.registrationPlate, function(err, result){
+		console.log(err);
+		console.log(result);
+		if(result.length > 0 && result[0].userId == req.session.sessionID){
+			var query = connection.query('DELETE FROM usercar WHERE registrationPlate = ?', req.body.registrationPlate, function(err, result){
+				console.log(err);
+				console.log(result);
+				if(!err){
+					var query = connection.query('DELETE FROM cars WHERE registrationPlate = ?', req.body.registrationPlate, function(err, result){
+						console.log(err);
+						console.log(result);
+						if(!err){
+							var files = [];
+							var dirPath = path.resolve(__dirname, '../webroot/images/'+req.body.registrationPlate);
+						    if(fs.existsSync(dirPath)) {
+						        files = fs.readdirSync(dirPath);
+						        files.forEach(function(file,index){
+						            var curPath = dirPath + "/" + file;
+						            if(fs.lstatSync(curPath).isDirectory()) { // recurse
+						                deleteFolderRecursive(curPath);
+						          	} else { // delete file
+						                fs.unlinkSync(curPath);
+						            }
+						        });
+						        fs.rmdirSync(dirPath);
+						        res.writeHead(301,
+									{Location: '/myCars'}
+								);
+								res.end();
+						    }
+						}
+					});
+				}
+			});
 		}
 	});
 }
+
+deleteFolderRecursive = function(path) {
+    
+};
 
 exports.addCar = addCar;
 exports.myCars = myCars;

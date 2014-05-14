@@ -9,6 +9,9 @@ module.exports.controller = function(app) {
 	 		app.post('/modifyCar', express.multipart(), function(req, res) {
 				model.modifyCar(req, res);
 			});
+			app.post('/deleteCar', function(req, res) {
+				model.deleteCar(req, res);
+			});
 	 	}
 	 	else{
 	 		res.writeHead(301,
