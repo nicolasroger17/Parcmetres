@@ -6,7 +6,7 @@
 	<body>
 		<div class='container'>
 			<h1>Mes informations</h1>
-			<form id='inscriptionForm' method='post' action='/inscription'>
+			<form id='inscriptionForm' method='post' action='/modifyMyInfos'>
 				<label>Adresse mail
 					<input type='email' name='emailAddress' placeholder='Adresse mail' value='<%= user.emailAddress %>'>
 				</label>
@@ -34,5 +34,7 @@
 				<input type='submit' value='Valider'>
 			</form>
 		</div>
+		<script type="text/javascript" src='/webroot/js/jquery.js'></script>
+		<script type="text/javascript" src='/webroot/js/inscription.js'></script>
 	</body>
 </html>

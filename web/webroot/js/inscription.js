@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$("#inscriptionForm").submit(function(){
-		$("input[name='password']").val(sha1($("input[name='password']").val()));
+		if($("input[name='password']").val() != "")
+			$("input[name='password']").val(sha1($("input[name='password']").val()));
 	});
 });
 

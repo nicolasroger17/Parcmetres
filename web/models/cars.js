@@ -186,19 +186,12 @@ var modifyCar = function(req, res){
 }
 
 var deleteCar = function(req, res){
-	console.log(req.body);
 	// check if a user with the same mail address exists
 	var query = connection.query('SELECT * FROM usercar WHERE registrationPlate = ?', req.body.registrationPlate, function(err, result){
-		console.log(err);
-		console.log(result);
 		if(result.length > 0 && result[0].userId == req.session.sessionID){
 			var query = connection.query('DELETE FROM usercar WHERE registrationPlate = ?', req.body.registrationPlate, function(err, result){
-				console.log(err);
-				console.log(result);
 				if(!err){
 					var query = connection.query('DELETE FROM cars WHERE registrationPlate = ?', req.body.registrationPlate, function(err, result){
-						console.log(err);
-						console.log(result);
 						if(!err){
 							var files = [];
 							var dirPath = path.resolve(__dirname, '../webroot/images/'+req.body.registrationPlate);

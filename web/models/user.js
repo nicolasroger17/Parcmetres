@@ -30,21 +30,15 @@ var myInformations = function(req, res){
 	});
 }
 
-var updateMyInformations = function(req, res){
+var modifyMyInfos = function(req, res){
 	// check if a user with the same mail address exists
-	var query = connection.query('UPDATE users SET ? where id = ' + req.session.sessionID, req.body, function(err, result){
-		// if no error
-		if(!err){
-			console.log(result[0]);
-			res.render('user/myInformations', {user : result[0]});
-		}
-		else{
-			res.writeHead(301,
-				{Location: '/home'}
-			);
-			res.end();
-		}
+	var query = connection.query('UPDATE users SET ? where id = ?', [req.body, req.session.sessionID], function(err, result){
+		res.writeHead(301,
+			{Location: '/myInformations'}
+		);
+		res.end();
 	});
 }
 
 exports.myInformations = myInformations;
+exports.modifyMyInfos = modifyMyInfos;
