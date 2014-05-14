@@ -8,14 +8,14 @@
 		<div class='container'>
 			<h1>Mes voitures</h1>
 			<% for(var i = 0; i < cars.length; i++) {%>
-				<form methode='post' action='/modifyCar?registrationPlate=<%= cars[i].registrationPlate %>'>
+				<form class='carsForm' method='post' action='/modifyCar' enctype='multipart/form-data'>
 					<img style='width: 300px;' src='/webroot/images/<%= cars[i].registrationPlate %>/photo.jpg' >
 					<input type='file' name='photo'>
-					<img style='width: 300px;' src='/webroot/images/<%= cars[i].registrationPlate %>/registrationPlate.jpg' >
-					<input type='file' name='photo'>
+					<img style='width: 300px;' src='/webroot/images/<%= cars[i].registrationPlate %>/registrationFile.jpg' >
+					<input type='file' name='registrationFile'>
 					<input type='text' name='name' placeholder='name' value='<%= cars[i].name %>'>
 					<input type='text' name='registrationPlate' placeholder='registrationPlate'
-					value='<%= cars[i].registrationPlate %>'>
+					value='<%= cars[i].registrationPlate %>' disabled>
 					<input type='submit' value='modifier'>
 					<a href=<%= '/deleteCar?registrationPlate=' + cars[i].registrationPlate %>>
 						<input type='button' value='Supprimer'>
@@ -24,6 +24,6 @@
 			<% } %>
 		</div>
 		<script type="text/javascript" src='/webroot/js/jquery.js'></script>
-		<script type="text/javascript" src='/webroot/js/addCar.js'></script>
+		<script type="text/javascript" src='/webroot/js/myCars.js'></script>
 	</body>
 </html>

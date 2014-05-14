@@ -6,6 +6,9 @@ module.exports.controller = function(app) {
 	app.get('/myCars', function(req, res) {
 		if(req.session.sessionID){
 	 		model.myCars(req, res);
+	 		app.post('/modifyCar', express.multipart(), function(req, res) {
+				model.modifyCar(req, res);
+			});
 	 	}
 	 	else{
 	 		res.writeHead(301,
@@ -30,18 +33,4 @@ module.exports.controller = function(app) {
 		}
 	});
 
-	app.get('/modifyCar', function(req, res) {
-		if(req.session.sessionID){
-			res.render('cars/modifyCar');
-			app.post('/modifyCar', express.multipart(), function(req, res) {
-				model.modifyCar(req, res);
-			});
-		}
-		else{
-			res.writeHead(301,
-			  {Location: '/'}
-			);
-			res.end();
-		}
-	});
 }
