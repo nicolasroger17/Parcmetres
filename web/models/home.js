@@ -55,9 +55,9 @@ function allFieldsSet(req){
 }
 
 var	connexion = function(req, res){
-	var query = connection.query('SELECT id, lastName, firstName FROM users where emailAddress= ?  && password= ?', [req.body.emailAddress, req.body.password], function(err, result){
+	var query = connection.query('SELECT id, lastName, firstName FROM users where emailAddress= ? && password= ?', [req.body.emailAddress, req.body.password], function(err, result){
 		if(!err){
-			if(result.length > 0){
+			if(result.length == 1){
 				req.session.sessionID = result[0].id; req.session.lastName = result[0].lastName; req.session.firstName = result[0].firstName;
 				res.writeHead(301,
 					{Location: '/home'}

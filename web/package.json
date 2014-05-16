@@ -23,9 +23,7 @@
     "express": "~3.4.8",
     "ent": "~0.1.0",
     "ejs": "~1.0.0",
-    "mysql": "~2.2.0",
-    "express-session": "~1.0.4",
-    "connect-redis": "~2.0.0"
+    "mysql": "~2.2.0"
   },
   "devDependencies": {},
   "bundleDependencies": [],

@@ -195,22 +195,8 @@ var deleteCar = function(req, res){
 						if(!err){
 							var files = [];
 							var dirPath = path.resolve(__dirname, '../webroot/images/'+req.body.registrationPlate);
-						    if(fs.existsSync(dirPath)) {
-						        files = fs.readdirSync(dirPath);
-						        files.forEach(function(file,index){
-						            var curPath = dirPath + "/" + file;
-						            if(fs.lstatSync(curPath).isDirectory()) { // recurse
-						                deleteFolderRecursive(curPath);
-						          	} else { // delete file
-						                fs.unlinkSync(curPath);
-						            }
-						        });
-						        fs.rmdirSync(dirPath);
-						        res.writeHead(301,
-									{Location: '/myCars'}
-								);
-								res.end();
-						    }
+							//delete folder
+						    deleteFolderRecursive(dirPath, res, '/myCars');
 						}
 					});
 				}
@@ -219,8 +205,23 @@ var deleteCar = function(req, res){
 	});
 }
 
-deleteFolderRecursive = function(path) {
-    
+function deleteFolderRecursive(dirPath, res, page){
+    if(fs.existsSync(dirPath)) {
+	    files = fs.readdirSync(dirPath);
+	    files.forEach(function(file,index){
+	        var curPath = dirPath + "/" + file;
+	        if(fs.lstatSync(curPath).isDirectory()) { // recurse
+	            deleteFolderRecursive(curPath);
+	      	} else { // delete file
+	            fs.unlinkSync(curPath);
+	        }
+	    });
+	    fs.rmdirSync(dirPath);
+	    res.writeHead(301,
+			{Location: page}
+		);
+		res.end();
+	}
 };
 
 exports.addCar = addCar;
