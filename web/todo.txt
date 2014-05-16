@@ -1,0 +1,18 @@
+Côté serveur : 
+
+Mot de passe oublié
+Démarrage paiement
+Gestion crédit
+Interface avec l'application
+Suppression du compte
+Une voiture sur plusieurs comptes
+
+Côté client :
+
+css partout
+regex/javascript
+ajax, vérification mail
+
+Appli : 
+
+Contenu dynamique
