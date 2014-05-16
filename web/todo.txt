@@ -1,6 +1,5 @@
 Côté serveur : 
 
-Mot de passe oublié
 Démarrage paiement
 Gestion crédit
 Interface avec l'application
