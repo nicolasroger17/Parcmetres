@@ -29,18 +29,6 @@ module.exports.controller = function(app) {
 		}
 	});
 
-	app.get('/start', function(req, res) {
-		if(req.session.sessionID){
-			res.render('user/start');
-		}
-		else{
-			res.writeHead(301,
-			  {Location: '/'}
-			);
-			res.end();
-		}
-	});
-
 	app.get('/lostPassword', function(req, res) {
 		if(!req.session.sessionID){
 			res.render('user/lostPassword');

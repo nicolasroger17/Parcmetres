@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Start</title>
+	<link rel="stylesheet" type="text/css" href="/css/start.css">
+</head>
+<body>
+	<h1>Choisissez votre voiture</h1>
+	<% for(var i = 0; i < cars.length; i++) {%>
+		<div class='car'>
+			<img src='/webroot/images/<%= cars[i].registrationPlate %>/photo.jpg'>
+			<p><%= cars[i].name %></p>
+			<p><%= cars[i].registrationPlate %></p>
+			<input class='selectCar' type='button' name=<%= cars[i].name %> registrationPlate=<%= cars[i].registrationPlate %>>
+		</div>
+	<% } %>
+</body>
+</html>
