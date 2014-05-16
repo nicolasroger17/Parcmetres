@@ -42,33 +42,39 @@ var modifyMyInfos = function(req, res){
 }
 
 var resetPassword = function(req, res){
-	var query = connection.query('UPDATE users SET password = ? where emailAddress = ?', [generatePassword(req.body.emailAddress), req.body.emailAddress], function(err, result){
-		console.log(err);
-		if(!err){
-			res.writeHead(301,
-				{Location: '/'}
-			);
-			res.end();
+	var query = connection.query('SELECT * FROM users WHERE emailAddress = ?', [req.body.emailAddress], function(err, result){
+		if(!err && result.length > 0){
+			var query = connection.query('UPDATE users SET password = ? where emailAddress = ?', [generatePassword(req.body.emailAddress), req.body.emailAddress], function(err, result){
+				if(!err){
+					res.writeHead(301,
+						{Location: '/'}
+					);
+					res.end();
+				}
+				else{
+					res.writeHead(301,
+						{Location: '/lostPassword'}
+					);
+					res.end();
+				}
+			});
 		}
 		else{
 			res.writeHead(301,
 				{Location: '/lostPassword'}
 			);
 			res.end();
-		}
+		}		
 	});
 }
 
 function generatePassword(mail){
 	var newPass = Math.random().toString(36).slice(-8);
-	console.log("new pass : " + newPass);
 	sendMail(mail, newPass);
 	return ""+sha1(newPass);
 }
 
 function sendMail(mail, pass){
-	console.log(mail)
-	console.log(pass);
 	var smtpTransport = mailer.createTransport("SMTP",{
 		service: "Gmail",  // sets automatically host, port and connection security settings
 		auth: {
