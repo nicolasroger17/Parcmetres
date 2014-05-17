@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 11, 2014 at 03:24 PM
+-- Generation Time: May 17, 2014 at 02:15 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `cars` (
 --
 
 INSERT INTO `cars` (`registrationPlate`, `name`, `status`) VALUES
-('859AA966', 'Ferrari', 'free');
+('859AA966', 'ferrari', 'free');
 
 -- --------------------------------------------------------
 
@@ -66,9 +66,16 @@ CREATE TABLE IF NOT EXISTS `parked` (
 CREATE TABLE IF NOT EXISTS `usercar` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `userId` int(10) NOT NULL,
-  `registrationPlate` varchar(10) NOT NULL,
+  `registrationPlate` varchar(10) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `usercar`
+--
+
+INSERT INTO `usercar` (`id`, `userId`, `registrationPlate`) VALUES
+(1, 1, '859AA966');
 
 -- --------------------------------------------------------
 
@@ -86,14 +93,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` varchar(12) NOT NULL,
   `password` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `lastName`, `firstName`, `emailAddress`, `address`, `zipCode`, `phone`, `password`) VALUES
-(1, 'ROGER', 'Nicolas', 'bellerauphon@hotmail.fr', '18 rue des quatre vents', 75006, '2147483647', '7c4a8d09ca3762af61e59520943dc26494f8941b');
+(1, 'ROGER', 'Nicolas', 'bellerauphon@hotmail.fr', '18 rue des quatre vents', 75006, '064564563', '7c4a8d09ca3762af61e59520943dc26494f8941b');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
