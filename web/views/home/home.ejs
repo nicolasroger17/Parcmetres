@@ -5,16 +5,29 @@
 	</head>
 	<body>
 		<div id="header">
-			<div id="header_left">Home</div>
-			<div id="header_right">Bonjour <%= firstName %> <%=lastName %></div>
-		</div>
-			<div id="cssmenu">
-				<ul>
-					<li class='active'><a href='/myInformations'><span>Mes informations</span></a></li>
-					<li><a href='/myCars'><span>Gérer mes voitures</span></a></li>
-					<li class='last'><a href='/start'><span>Démarrer</span></a></li>
-					<li class='last'><a href='/deconnexion'><span>Déconnexion</span></a></li>
-				</ul>
+			<div id="header_left">
+				<img style='width: 80px;' src='/webroot/images/859AA966/king.jpeg' >
 			</div>
+			<div id="header_right">
+			Bonjour <%= firstName %> <%=lastName %>
+			<a href='/deconnexion'><span>Déconnexion</span></a>
+			</div>
+
+		</div>
+			<div id="bienvenu">
+				Bienvenue sur Payetonpark
+			</div>
+			<div id="fonctions">
+				<div id="monCompte">
+					<a href='/myInformations'>Mon compte</a>
+				</div>
+				<div id="mesVoitures">
+					<a href='/myCars'>Gérer mes voitures</a>
+				</div>
+			</div>
+			<div id="demarrer">
+				<a href='/start'>Démarrer</a>
+			</div>
+
 	</body>
 </html>
