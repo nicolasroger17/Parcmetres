@@ -4,29 +4,20 @@
 		<link rel="stylesheet" type="text/css" href="/webroot/css/home.css">
 	</head>
 	<body>
-		<div id="header">
-			<div id="header_left">
-				<img style='width: 80px;' src='/webroot/images/859AA966/king.jpeg' >
-			</div>
-			<div id="header_right">
-			Bonjour <%= firstName %> <%=lastName %>
-			<a href='/deconnexion'><span>Déconnexion</span></a>
-			</div>
-
-		</div>
+		<%- include header.ejs %>  
 			<div id="bienvenu">
 				Bienvenue sur Payetonpark
 			</div>
 			<div id="fonctions">
-				<div id="monCompte">
-					<a href='/myInformations'>Mon compte</a>
+				<div id="monCompte" onclick="location.href='/myInformations';">
+					<p>Mon compte</p>
 				</div>
-				<div id="mesVoitures">
-					<a href='/myCars'>Gérer mes voitures</a>
+				<div id="mesVoitures" onclick="location.href='/myCars';">
+					<p>Gérer mes voitures</p>
 				</div>
 			</div>
-			<div id="demarrer">
-				<a href='/start'>Démarrer</a>
+			<div id="demarrer" onclick="location.href='/start';">
+				<p>Démarrer</p>
 			</div>
 
 	</body>
