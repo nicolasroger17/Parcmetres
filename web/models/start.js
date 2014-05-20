@@ -15,17 +15,20 @@ connection.connect();
 
 var chooseCar = function(req, res){
 	// check if a user with the same mail address exists
-	var query = connection.query('SELECT *.cars FROM cars LEFT JOIN usercar ON cars.registrationPlate = usercar.registrationPlate WHERE  usercar.userId= ?', [req.session.sessionID], function(err, result){
-		console.log(err);
-		// if no error
+	req.models.user.get(req.session.sessionID, function(err, result){
 		if(!err){
-			console.log(result[0]);
-			res.render('start/chooseCar', {cars : result});
+			result.getCars(function(err, result){
+				if(!err){
+					res.render('start/chooseCar', {cars: result});
+				}
+				else{
+					res.writeHead(301, {Location: '/home'} );
+					res.end();
+				}
+			});
 		}
 		else{
-			res.writeHead(301,
-				{Location: '/home'}
-			);
+			res.writeHead(301, {Location: '/home'} );
 			res.end();
 		}
 	});

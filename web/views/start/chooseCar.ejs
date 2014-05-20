@@ -7,10 +7,10 @@
 	<h1>Choisissez votre voiture</h1>
 	<% for(var i = 0; i < cars.length; i++) {%>
 		<div class='car'>
-			<img src='/webroot/images/<%= cars[i].registrationPlate %>/photo.jpg'>
+			<img src='/webroot/images/<%= cars[i].id %>/photo.jpg'>
 			<p><%= cars[i].name %></p>
-			<p><%= cars[i].registrationPlate %></p>
-			<input class='selectCar' type='button' name=<%= cars[i].name %> registrationPlate=<%= cars[i].registrationPlate %>>
+			<p><%= cars[i].id %></p>
+			<input class='selectCar' type='button' name=<%= cars[i].name %> id=<%= cars[i].id %> value='sélectionner'>
 		</div>
 	<% } %>
 </body>

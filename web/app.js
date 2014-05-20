@@ -1,11 +1,60 @@
 var express = require('express'),
+    orm = require('orm'),
     app = express(),
     path = require('path'),
     server = require('http'),
     ent = require('ent'), // Permet de bloquer les caractères HTML (sécurité équivalente à htmlentities en PHP)
-    fs = require('fs');
+    fs = require('fs'),
+    conf = require('./config/conf.js')();
 
 app.set('port', process.env.PORT || 8080)
+.use('/webroot', express.static(__dirname + '/webroot'))
+.use(orm.express(conf, {
+   define: function (db, models) {
+      models.user = db.define("user", {
+         lastName     : String,
+         firstName    : String,
+         emailAddress : String,
+         address 		 : String,
+         city         : String,
+         zipCode      : Number,
+         phone        : String,
+         password     : String
+      },
+      {
+         id: ['id'],
+         methods: {
+            // add methods 
+         },
+         validations: {
+            id: orm.enforce.unique("id already taken!"),
+            emailAddress: orm.enforce.unique({ ignoreCase: true }, "mail already taken!")
+         },
+         cache   : false
+      })
+
+      models.car = db.define("car", {
+         name          : String,
+         status        : {type: "text", defaultValue: "free"}
+      },
+      {
+         id: ['id'],
+         methods: {
+            // add methods 
+         },
+         validations: {
+            id: orm.enforce.unique("plate already taken")
+         },
+         cache   : false
+      })
+
+      models.user.hasMany("cars", models.car, {},
+			{
+            reverse : "users"
+			}
+      );
+   }
+}))
 .set('views', __dirname + '/views')
 .set('view engine', 'ejs')
 .use(express.favicon())
@@ -15,9 +64,10 @@ app.set('port', process.env.PORT || 8080)
 .use(express.methodOverride())
 .use(express.cookieParser('parcmetresSecretCookie'))
 .use(express.session())
-.use(app.router)
-.use('/webroot', express.static(__dirname + '/webroot'));
+.use(app.router);
 
+//req.models.user.sync();
+//req.models.car.sync();
 // dynamically include routes (Controller)
 fs.readdirSync('./controllers').forEach(function (file) {
   if(file.substr(-3) == '.js') {

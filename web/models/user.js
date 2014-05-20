@@ -15,56 +15,58 @@ var connection = mysql.createConnection({
 connection.connect();
 
 var myInformations = function(req, res){
-	// check if a user with the same mail address exists
-	var query = connection.query('SELECT * FROM users where id= ?', [req.session.sessionID], function(err, result){
-		// if no error
+	req.models.user.get(req.session.sessionID, function(err, result){
 		if(!err){
-			console.log(result[0]);
-			res.render('user/myInformations', {user : result[0]});
+			res.render('user/myInformations', {user : result});
 		}
 		else{
-			res.writeHead(301,
-				{Location: '/home'}
-			);
+			res.writeHead(301, {Location: '/home'});
 			res.end();
 		}
 	});
 }
 
 var modifyMyInfos = function(req, res){
-	// check if a user with the same mail address exists
-	var query = connection.query('UPDATE users SET ? where id = ?', [req.body, req.session.sessionID], function(err, result){
-		res.writeHead(301,
-			{Location: '/myInformations'}
-		);
-		res.end();
+	req.models.user.get(req.session.sessionID, function(err, result){
+		if(!err){
+			for(var key in req.body){
+				if(key != "password"){
+					result[key] = req.body[key];
+				}
+				else if(req.body.password != ""){
+					result.password = req.body.password;
+				}
+	        }
+	        result.save(function(err){
+	        	if(err)
+	        		console.log(err);
+	        	res.writeHead(301, {Location: '/myInformations'} );
+				res.end();
+	        });	        
+		}
+		else{
+			res.writeHead(301, {Location: '/myInformations'} );
+			res.end();
+		}
 	});
 }
 
 var resetPassword = function(req, res){
-	var query = connection.query('SELECT * FROM users WHERE emailAddress = ?', [req.body.emailAddress], function(err, result){
-		if(!err && result.length > 0){
-			var query = connection.query('UPDATE users SET password = ? where emailAddress = ?', [generatePassword(req.body.emailAddress), req.body.emailAddress], function(err, result){
-				if(!err){
-					res.writeHead(301,
-						{Location: '/'}
-					);
-					res.end();
-				}
-				else{
-					res.writeHead(301,
-						{Location: '/lostPassword'}
-					);
-					res.end();
-				}
+	req.models.user.find({emailAddress: req.body.emailAddress}, function(err, result){
+		console.log(err);
+		if(!err){
+			result[0].password = generatePassword(req.body.emailAddress);
+			result[0].save(function(err){
+				if(err)
+					console.log(err);
+				res.writeHead(301, {Location: '/'});
+				res.end();
 			});
 		}
 		else{
-			res.writeHead(301,
-				{Location: '/lostPassword'}
-			);
+			res.writeHead(301, {Location: '/lostPassword'});
 			res.end();
-		}		
+		}
 	});
 }
 
