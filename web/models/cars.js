@@ -65,7 +65,9 @@ var modifyCar = function(req, res){
 	// check if a user with the same mail address exists
 	req.models.car.get(req.body.id, function(err, result){
 		if(!err){
+			result.name = req.body.name;
 			result.save(function(err){
+				console.log(err);
 				if(!err){
 					// sets the directory for the images
 					var dirPath = path.resolve(__dirname, '../webroot/images/'+req.body.id);

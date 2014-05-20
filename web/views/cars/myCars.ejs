@@ -6,9 +6,7 @@
 	</head>
 	<body>
 		<div class='container'>
-		<div id="titre">
-			Mes voitures
-		</div>
+			<h1>Mes voitures</h1>
 			<% for(var i = 0; i < cars.length; i++) {%>
 				<form class='carsForm' method='post' action='/modifyCar' enctype='multipart/form-data'>
 					<img style='width: 300px;' src='/webroot/images/<%= cars[i].id %>/photo.jpg' >
