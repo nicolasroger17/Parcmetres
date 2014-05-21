@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>Start</title>
+	<link rel="stylesheet" type="text/css" href="/css/start.css">
+</head>
+<body>
+	<div class="container">
+	<h1>Choisissez votre voiture</h1>
+	<% for(var i = 0; i < cars.length; i++) {%>
+		<div class='car'>
+			<img src='/webroot/images/<%= cars[i].id %>/photo.jpg'>
+			<p><%= cars[i].name %></p>
+			<p><%= cars[i].id %></p>
+			<a href='/chooseLocation?id=<%= cars[i].id %>'><input class='selectCar' type='button' name=<%= cars[i].name %> id=<%= cars[i].id %> value='sélectionner'></a>
+		</div>
+	<% } %>
+	</div>
+</body>
+</html>
