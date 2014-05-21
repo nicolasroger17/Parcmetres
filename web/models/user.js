@@ -1,18 +1,7 @@
-var mysql = require('mysql'),
-	conf = require('../config/conf.js')(),
+var conf = require('../config/conf.js')(),
 	fs = require('fs'),
 	path = require('path'),
 	mailer = require("nodemailer");
-
-var connection = mysql.createConnection({
-	port	 : conf.port,
-	host     : conf.host,
-	database : conf.database,
-	user     : conf.user,
-	password : conf.password
-});
-
-connection.connect();
 
 var myInformations = function(req, res){
 	req.models.user.get(req.session.sessionID, function(err, result){

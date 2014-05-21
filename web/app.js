@@ -48,11 +48,31 @@ app.set('port', process.env.PORT || 8080)
          cache   : false
       })
 
+      models.parked = db.define("parked", {
+         dateBegin     : Date,
+         dateEnd       : Date,
+         localPrice    : Number,
+         locationX     : Number,
+         locationY     : Number
+      },
+      {
+        id : ['car_id'],
+        methods: {
+          // add methods 
+        },
+        validations: {
+          car_id: orm.enforce.unique("car already parked")
+        },
+        cache   : false
+      })
+
       models.user.hasMany("cars", models.car, {},
 			{
             reverse : "users"
 			}
       );
+
+      models.parked.hasOne("car", models.car, { reverse: "parked" });
    }
 }))
 .set('views', __dirname + '/views')

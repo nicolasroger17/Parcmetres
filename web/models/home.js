@@ -1,15 +1,4 @@
-var mysql = require('mysql');
 var conf = require('../config/conf.js')();
-
-var connection = mysql.createConnection({
-	port	 : conf.port,
-	host     : conf.host,
-	database : conf.database,
-	user     : conf.user,
-	password : conf.password
-});
-
-connection.connect();
 
 var inscription = function(req, res){
 	req.models.user.create(req.body, function(err, result){
