@@ -50,7 +50,6 @@ app.set('port', process.env.PORT || 8080)
 
       models.parked = db.define("parked", {
          dateBegin     : Date,
-         dateEnd       : Date,
          localPrice    : Number,
          locationX     : Number,
          locationY     : Number

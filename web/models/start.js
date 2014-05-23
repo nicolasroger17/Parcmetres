@@ -21,7 +21,7 @@ var chooseCar = function(req, res){
 			});
 		}
 		else{
-			res.writeHead(301, {Location: '/home'} );
+			res.writeHead(301, {Location: '/home'});
 			res.end();
 		}
 	});
@@ -95,27 +95,21 @@ var start = function(req, res){
 
 // todo insert in parked
 var startSession = function(req, res){
+	console.log("startsession");
+	console.log(req.body);
 	// define the location
-	var location = {locationX : req.body.locationX, locationY : req.body.locationY};
+	var today = new Date();
+	console.log(today);
 	// check if a user with the same mail address exists
-	req.models.car.get(req.body.id, function(err, car){
-		console.log("car");
-		console.log(err);
+	req.models.car.get(req.body.car_id, function(err, car){
 		if(!err){
 			car.getUsers(function(err, user){
-				console.log("user");
-				console.log(err);
 				if(!err && user[0].id == req.session.sessionID){
-					car.getParked(function(err, parked){
-						console.log("parked");
-						console.log(err);
-						if(!err && parked.length == 0){
-							res.render('start/start', {user: user[0], car: car, location: location});
-						}
-						else{
-							res.writeHead(301, {Location: '/home'});
-							res.end();
-						}
+					req.models.parked.create(req.body, function(err, result){
+						if(err)
+							console.log(err);
+						res.writeHead(301, {Location: '/home'});
+						res.end();
 					});
 				}
 				else{
