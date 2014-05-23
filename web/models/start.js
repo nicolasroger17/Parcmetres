@@ -137,7 +137,7 @@ var stop = function(req, res){
 						jsonId.push({car_id : result[car].id});
 					}
 					console.log(jsonId);
-					req.models.parked.find({or:jsonId}).each(function(element){
+					/*req.models.parked.find({or:jsonId}).each(function(element){
 						console.log("remove element");
 						element.remove();
 					}).save(function(){
@@ -145,6 +145,10 @@ var stop = function(req, res){
 							res.writeHead(301, {Location: '/home'});
 							res.end();
 						},2000);
+					});*/
+					req.models.parked.find({or:jsonId}).remove(function(element){
+						res.writeHead(301, {Location: '/home'});
+						res.end();
 					});
 				}
 				else{
