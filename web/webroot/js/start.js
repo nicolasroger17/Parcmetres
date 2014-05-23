@@ -1,6 +1,9 @@
-$("#form").submit(function(){
-	$("input[name='dateBegin']").val(createDate());
-	return true;
+$(document).ready(function(){
+	$("#form").submit(function(){
+		$("input[name='dateBegin']").val(createDate());
+		return true;
+	});
+	getAddress();
 });
 
 function createDate(){
@@ -12,4 +15,14 @@ function twoDigits(d) {
     if(0 <= d && d < 10) return "0" + d.toString();
     if(-10 < d && d < 0) return "-0" + (-1*d).toString();
     return d.toString();
+}
+
+function getAddress(){
+	$.ajax({
+	    type: "GET",
+	    url: "https://maps.googleapis.com/maps/api/geocode/json?latlng="+$("input[name='locationX']").val()+","+$("input[name='locationY']").val()+"&sensor=true",
+	    success: function(data) {
+	    	$("#position").html(data['results'][0]['formatted_address']);
+	    }
+	});
 }
