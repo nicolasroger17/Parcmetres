@@ -126,16 +126,37 @@ var startSession = function(req, res){
 }
 
 var stop = function(req, res){
-	req.model.user.get(req.session.sessionID, function(err, result){
+	req.models.user.get(req.session.sessionID, function(err, result){
+		console.log(err);
 		if(!err){
 			result.getCars(function(err, result){
+				console.log(err);
 				if(!err){
-					var hasParked = false;
+					var jsonId;
 					for(car in result){
-						
+						jsonId.push({car_id : result[car]});
 					}
+					console.log(jsonId);
+					req.models.parked.find({or:[jsonId]}, function(err, result){
+						console.log(err);
+						if(!err){
+							
+						}
+						else{
+							res.writeHead(301, {Location: '/home'});
+							res.end();
+						}
+					});
+				}
+				else{
+					res.writeHead(301, {Location: '/home'});
+					res.end();
 				}
 			});
+		}
+		else{
+			res.writeHead(301, {Location: '/home'});
+			res.end();
 		}
 	});
 }

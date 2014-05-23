@@ -122,8 +122,6 @@ body{
 
 #demarrer{
   position: relative;
-  background-color: rgb(32,113,95);
-  height: 50px;
   width: 200px;
   margin: 0 auto;
   margin-top: 100px;
@@ -131,15 +129,21 @@ body{
   font-family: Lato, Helvetica, Arial, sans-serif;
   font-size: 26px;
   font-weight: bold;
-  padding-left: 90px;
   border-radius: 9px;
-    padding-top: 30px;
+}
+
+#demarrer[isParked="true"]{
+  background-color: rgb(179, 24, 24);
+}
+
+#demarrer[isParked="false"]{
+  background-color: rgb(32,113,95);
 }
 
 #demarrer p{
   text-decoration: none;
   color: white;
-
+  text-align: center;
+  line-height: 50px;
+  padding: 10px 20px;
 }
-
-

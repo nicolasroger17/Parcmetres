@@ -16,8 +16,8 @@
 					<p>Gérer mes voitures</p>
 				</div>
 			</div>
-			<div id="demarrer" onclick="location.href='/chooseCar';">
-				<p>Démarrer</p>
+			<div id="demarrer" onclick="location.href='/chooseCar';" isParked=<%= isParked %>>
+				<p><%= isParked?'Arrêter' : 'Démarrer' %></p>
 			</div>
 
 	</body>

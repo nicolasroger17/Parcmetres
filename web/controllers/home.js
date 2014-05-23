@@ -28,7 +28,7 @@ module.exports.controller = function(app) {
 
 function home(req, res){
 	if(req.session.sessionID){
-		res.render('home/home',{firstName: req.session.firstName, lastName: req.session.lastName});	
+		model.home(req, res);
 	}
 	else{
 		res.writeHead(301,
