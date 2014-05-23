@@ -11,30 +11,27 @@ var home = function(req, res){
 					for(car in result){
 						jsonId.push({car_id : result[car].id});
 					}
-					console.log("json");
-					console.log(jsonId);
 					req.models.parked.count({or:jsonId}, function(err, result){
-						console.log(err);
 						if(!err){
 							var isParked = result > 0;
 							res.render('home/home',{firstName: req.session.firstName, lastName: req.session.lastName, isParked: isParked});
 						}
-						/*else{
+						else{
 							res.writeHead(301, {Location: '/home'});
 							res.end();
-						}*/
+						}
 					});
 				}
-				/*else{
+				else{
 					res.writeHead(301, {Location: '/home'});
 					res.end();
-				}*/
+				}
 			});
 		}
-		/*else{
+		else{
 			res.writeHead(301, {Location: '/home'});
 			res.end();
-		}*/
+		}
 	});
 }
 

@@ -132,20 +132,19 @@ var stop = function(req, res){
 			result.getCars(function(err, result){
 				console.log(err);
 				if(!err){
-					var jsonId;
+					var jsonId = Array();
 					for(car in result){
-						jsonId.push({car_id : result[car]});
+						jsonId.push({car_id : result[car].id});
 					}
 					console.log(jsonId);
-					req.models.parked.find({or:[jsonId]}, function(err, result){
-						console.log(err);
-						if(!err){
-							
-						}
-						else{
+					req.models.parked.find({or:jsonId}).each(function(element){
+						console.log("remove element");
+						element.remove();
+					}).save(function(){
+						setTimeout(function(){
 							res.writeHead(301, {Location: '/home'});
 							res.end();
-						}
+						},2000);
 					});
 				}
 				else{
@@ -165,3 +164,4 @@ exports.chooseCar = chooseCar;
 exports.chooseLocation = chooseLocation;
 exports.start = start;
 exports.startSession = startSession;
+exports.stop = stop;

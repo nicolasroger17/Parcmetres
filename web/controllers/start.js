@@ -28,4 +28,14 @@ module.exports.controller = function(app) {
 		}
 	});
 
+	app.get('/stop', function(req, res) {
+		if(req.session.sessionID){
+			model.stop(req, res);
+		}
+		else{
+			res.writeHead(301, {Location: '/'});
+			res.end();
+		}
+	});
+
 }
