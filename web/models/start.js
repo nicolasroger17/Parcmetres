@@ -125,6 +125,21 @@ var startSession = function(req, res){
 	});
 }
 
+var stop = function(req, res){
+	req.model.user.get(req.session.sessionID, function(err, result){
+		if(!err){
+			result.getCars(function(err, result){
+				if(!err){
+					var hasParked = false;
+					for(car in result){
+						
+					}
+				}
+			});
+		}
+	});
+}
+
 exports.chooseCar = chooseCar;
 exports.chooseLocation = chooseLocation;
 exports.start = start;
