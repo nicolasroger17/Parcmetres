@@ -1,0 +1,29 @@
+body{
+  background: rgb(0, 157, 255);
+}
+
+img{
+width: 250px;
+}
+
+h1{
+  color: rgb(0, 157, 255);
+  text-align: center;
+}
+
+.container{
+width: 400px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 25px;
+  background: white;
+  border-radius: 10px;
+  background-color: #edeff1;
+}
+
+.car{
+position: relative;
+padding-left: 50px;
+display: inline-block;
+}

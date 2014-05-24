@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Mes voitures</title>
+		<link rel="stylesheet" type="text/css" href="/webroot/css/myCars.css">
+	</head>
+	<body>
+		<div class='container'>
+			<h1>Mes voitures</h1>
+			<% for(var i = 0; i < cars.length; i++) {%>
+				<form class='carsForm' method='post' action='/modifyCar' enctype='multipart/form-data'>
+					<img style='width: 300px;' src='/webroot/images/<%= cars[i].id %>/photo.jpg' >
+					<input type='file' name='photo'>
+					<img style='width: 300px;' src='/webroot/images/<%= cars[i].id %>/registrationFile.jpg' >
+					<input type='file' name='registrationFile'>
+					<input type='text' name='name' placeholder='name' value='<%= cars[i].name %>'>
+					<input type='text' name='id' placeholder="Plaque d'immatriculation"
+					value='<%= cars[i].id %>' disabled>
+					<input type='submit' value='modifier'>
+				</form>
+				<form method='post' action='/deleteCar'>
+					<input type='hidden' name='id' value=<%= cars[i].id %>>
+					<input type='submit' value='Supprimer'>
+				</form>				
+			<% } %>
+		</div>
+		<script type="text/javascript" src='/webroot/js/jquery.js'></script>
+		<script type="text/javascript" src='/webroot/js/myCars.js'></script>
+	</body>
+</html>

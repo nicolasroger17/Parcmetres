@@ -1,0 +1,42 @@
+body{
+  background: rgb(0, 157, 255);
+}
+
+.container{
+  width: 450px;
+  margin: auto;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 25px;
+  background: white;
+  border-radius: 10px;
+  background-color: #edeff1;
+}
+
+h1{
+  color: rgb(0, 157, 255);
+  text-align: center;
+}
+
+form{
+	display: block;
+
+}
+
+input{
+  margin: auto;
+  width: 250px;
+  display: block;
+  margin-top: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 9px;
+ }
+
+ img{
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  border-radius: 7px;
+  border: 5px solid grey;
+ }

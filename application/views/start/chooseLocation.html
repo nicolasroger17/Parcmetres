@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Choix de la location</title>
+		<link rel="stylesheet" type="text/css" href="/webroot/css/chooseLocation.css">
+	</head>
+	<body>
+		<div class='container'>
+			<form method='post' action='/start'>
+				<h1>Choix de la location</h1>
+				<div id='map-canvas'></div>
+				<input type='hidden' name='locationX'>
+				<input type='hidden' name='locationY'>
+				<input type='hidden' name='id' value=<%= car_id %>
+				<p>ou</p>
+				<input type='text' name='code' placeholder='Code de la borne'>
+				<input type='submit' value='valider'>
+			</form>
+		</div>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTf2JUcebU-3d2FQL5t9BrLi3YbQLdKC8&sensor=true"></script>
+		<script type="text/javascript" src='webroot/js/chooseLocation.js'></script>
+	</body>
+</html>
