@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Connexion</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="/webroot/appli/css/jquery.mobile.min.css" />
+		<link rel="stylesheet" type="text/css" href="/webroot/appli/css/home.css">
+		<link rel="stylesheet" type="text/css" href="/webroot/appli/css/connexion.css">
+		<link rel="stylesheet" type="text/css" href="/webroot/appli/css/chooseCar.css">
+		<link rel="stylesheet" type="text/css" href="/webroot/appli/css/chooseLocation.css">
+		<link rel="stylesheet" type="text/css" href="/webroot/appli/css/start.css">
+	</head>
+	<body>
+
+		<!-- Start of first page -->
+		<div data-role="page" id="connexion">
+
+			<div data-role="header">
+				<h1>Connexion</h1>
+			</div><!-- /header -->
+
+			<div role="main" class="ui-content">
+				<form id='connexionForm'>
+					<input type='email' name='emailAddress' placeholder='Adresse mail'>
+					<input type='password' name='password' placeholder='Mot de passe'>
+					<input type='submit' value='Connexion'>
+				</form>
+				<a href='/lostPassword'>Mot de passe oublié</a>
+			</div><!-- /content -->
+		</div><!-- /page -->
+
+		<!-- Start of second page -->
+		<div data-role="page" id="home">
+
+			<div data-role="header">
+				<h1>Home</h1>
+			</div><!-- /header -->
+
+			<div role="main" class="ui-content">
+				<div id="fonctions">
+					<div id="monCompte">
+						<p><a href="/myInformations">Mon compte</a></p>
+					</div>
+					<div id="mesVoitures">
+						<p><a href=	"/myCars">Gérer mes voitures</a></p>
+					</div>
+				</div>
+				<div id="demarrer">
+					<p><a href='/chooseCar'>Démarrer</a></p>
+				</div>
+			</div><!-- /content -->
+		</div><!-- /page -->
+		<script src="/webroot/appli/js/jquery.js"></script>
+		<script src="/webroot/appli/js/jquery.mobile.min.js"></script>
+		<script src="/webroot/appli/js/appli.js"></script>
+	</body>
+</html>

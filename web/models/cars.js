@@ -132,25 +132,19 @@ function uploadFiles(files, dirPath, res){
 							// write it to the directory
 							fs.writeFile(dirPath+"\\photo.jpg", data, function(err){
 								if(!err){
-									res.writeHead(301,
-										{Location: '/myCars'}
-									);
+									res.writeHead(301, {Location: '/myCars'});
 									res.end();
 								}
 							});
 						});
 					}
 					else{
-						res.writeHead(301,
-							{Location: '/myCars'}
-						);
+						res.writeHead(301, {Location: '/myCars'});
 						res.end();
 					}
 				}
 				else{
-					res.writeHead(301,
-						{Location: '/addCar'}
-					);
+					res.writeHead(301, {Location: '/addCar'});
 					res.end();
 				}
 			});
@@ -162,18 +156,14 @@ function uploadFiles(files, dirPath, res){
 			// write it to the directory
 			fs.writeFile(dirPath+"\\photo.jpg", data, function(err){
 				if(!err){
-					res.writeHead(301,
-						{Location: '/myCars'}
-					);
+					res.writeHead(301, {Location: '/myCars'});
 					res.end();
 				}
 			});
 		});
 	}
 	else{
-		res.writeHead(301,
-			{Location: '/myCars'}
-		);
+		res.writeHead(301, {Location: '/myCars'});
 		res.end();
 	}
 }

@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="/webroot/css/header.css">
 	</head>
 	<body>
-		<%- include header.ejs %>  
+		<%- include header.ejs %>
 		<div id="bienvenu">
 			Bienvenue sur Payetonpark
 		</div>
@@ -17,8 +17,8 @@
 				<p>Gérer mes voitures</p>
 			</div>
 		</div>
-		<div id="demarrer" onclick="location.href='/<%= isParked?'stop' : 'chooseCar' %>';" isParked=<%= isParked %>>
-			<p><%= isParked?'Arrêter' : 'Démarrer' %></p>
+		<div id="demarrer" isParked=<%= isParked %>>
+			<p><a href='/<%= isParked?'stop' : 'chooseCar' %>'><%= isParked?'Arrêter' : 'Démarrer' %></a></p>
 		</div>
 		<script type="text/javascript" src='webroot/js/jquery.js'></script>
 	</body>

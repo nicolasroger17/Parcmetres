@@ -19,9 +19,7 @@ module.exports.controller = function(app) {
 
 	app.get('/deconnexion', function(req, res) {
 		req.session.destroy();
-		res.writeHead(301,
-		  {Location: '/'}
-		);
+		res.writeHead(301, {Location: '/'} );
 		res.end();
 	});
 }
@@ -31,9 +29,7 @@ function home(req, res){
 		model.home(req, res);
 	}
 	else{
-		res.writeHead(301,
-		  {Location: '/connexion'}
-		);
+		res.writeHead(301, {Location: '/connexion'});
 		res.end();
 	}
 }

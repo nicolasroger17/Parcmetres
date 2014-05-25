@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Home</title>
+		<link rel="stylesheet" type="text/css" href="/webroot/css/home.css">
+		<link rel="stylesheet" type="text/css" href="/webroot/css/header.css">
+	</head>
+	<body>
+		<%- include header.ejs %>  
+		<div id="bienvenu">
+			Bienvenue sur Payetonpark
+		</div>
+		<div id="fonctions">
+			<div id="monCompte">
+				<p><a href='/myInformations'>Mon compte</a></p>
+			</div>
+			<div id="mesVoitures">
+				<p><a href='/myCars'>Gérer mes voitures</a></p>
+			</div>
+		</div>
+		<div id="demarrer" onclick="location.href='/<%= isParked?'stop' : 'chooseCar' %>';" isParked=<%= isParked %>>
+			<p><%= isParked?'Arrêter' : 'Démarrer' %></p>
+		</div>
+		<script type="text/javascript" src='webroot/js/jquery.js'></script>
+	</body>
+</html>
