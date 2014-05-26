@@ -9,7 +9,6 @@ var connexion = function(req, res){
 		if(!err && result.length == 1){
 			req.session.sessionID = result[0].id; req.session.lastName = result[0].lastName; req.session.firstName = result[0].firstName;
     		console.log(req.session.sessionID);
-    		console.log(req);
     		res.json({isConnected: true});
 		}
 		else{

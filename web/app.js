@@ -83,22 +83,12 @@ app.set('port', process.env.PORT || 8080)
 .use(express.methodOverride())
 .use(express.cookieParser('parcmetresSecretCookie'))
 .use(express.session())
-.use(app.router);
-/*.use(function (req, res) {
-
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
-
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
-});*/
+.use(app.router)
+.use(express.session({
+  secret: 'yuio45DFS23',
+  cookie: {httpOnly: false},
+  key: 'cookie.sid'}
+));
 
 //req.models.user.sync();
 //req.models.car.sync();

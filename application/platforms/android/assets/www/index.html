@@ -34,6 +34,7 @@
 
         <script src="js/jquery.js"></script>
         <script src="js/jquery.mobile.min.js"></script>
+        <script src="js/jquery.cookie.js"></script>
         <script src="js/index.js"></script>        
     </head>
     <body>
@@ -41,7 +42,7 @@
         <div data-role="page" id="loading">
             <div role="main" class="ui-content loading">
                 <img class='img-logo' src='img/logo.png'>
-                <div> SALUT </div>
+                <div> Bienvenue </div>
             </div><!-- /content -->
         </div><!-- /page -->
 
@@ -52,7 +53,7 @@
             </div><!-- /header -->
 
             <div role="main" class="ui-content">                
-                <form id='connexionForm'>
+                <form id='connexionForm' class='connexion' >
                     <input type='email' name='emailAddress' placeholder='Adresse mail'>
                     <input type='password' name='password' placeholder='Mot de passe'>
                     <input type='submit' value='Connexion'>

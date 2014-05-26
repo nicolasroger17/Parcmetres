@@ -28,12 +28,18 @@ var app = {
     }
 };
 
+var cookie = "";
+
 function amIConnected(){
     $.ajax({
         type: "GET",
         url: "http://localhost:8080/appli/amIConnected",
-        setCookies: "s%3AGjRvwjG5Hnji6LIHdf83SGq4.R9BoPqs2srLoJpPdnzJ%2F58xhec16%2FoFuRu%2BNlyTukTs",
-        success: function(data) {
+        cookie: cookie,
+        success: function(data, status, xhr) {
+            console.log(xhr);
+            cookie = xhr.getResponseHeader('Set-Cookie');
+            console.log(xhr.getAllResponseHeaders());
+            console.log(data.cookie);
             if(data.iAmConnected){
                 location.href = "#home";
             }
@@ -50,13 +56,19 @@ function connexion(){
         $.ajax({
             type: "POST",
             url: "http://localhost:8080/appli/connexion",
-            setCookies: "s%3AGjRvwjG5Hnji6LIHdf83SGq4.R9BoPqs2srLoJpPdnzJ%2F58xhec16%2FoFuRu%2BNlyTukTs",
             data: {
                 emailAddress: $("input[name='emailAddress']:eq(0)").val(),
                 password: sha1($("input[name='password']:eq(0)").val())
             },
-            success: function(data) {
+            success: function(data, status, xhr) {
+                cookie = xhr.getResponseHeader('Set-Cookie');
+                console.log(xhr.getAllResponseHeaders());
+                console.log(xhr.getResponseHeader('Connection'));
+                console.log("cookie");
+                console.log(cookie);
                 console.log(data);
+                console.log(data.cookie);
+                console.log($.cookie());
                 if(data.isConnected)
                     location.href = "#home";
             }
