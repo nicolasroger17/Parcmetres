@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 23, 2014 at 12:00 PM
+-- Generation Time: May 20, 2014 at 02:35 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -46,12 +46,16 @@ INSERT INTO `car` (`id`, `name`, `status`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `parked` (
-  `car_id` varchar(10) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `registrationPlate` varchar(10) NOT NULL,
+  `userId` int(10) NOT NULL,
   `dateBegin` datetime NOT NULL,
-  `localPrice` float NOT NULL,
-  `locationX` float NOT NULL,
-  `locationY` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `dateEnd` datetime NOT NULL,
+  `localPrice` int(10) NOT NULL,
+  `locationX` int(10) NOT NULL,
+  `locationY` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -90,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `user_cars` (
   `user_id` int(10) NOT NULL,
   `cars_id` varchar(10) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `user_cars`
