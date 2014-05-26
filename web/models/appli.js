@@ -8,7 +8,8 @@ var connexion = function(req, res){
 	req.models.user.find(req.body, function(err, result){
 		if(!err && result.length == 1){
 			req.session.sessionID = result[0].id; req.session.lastName = result[0].lastName; req.session.firstName = result[0].firstName;
-			console.log("session started");
+    		console.log(req.session.sessionID);
+    		console.log(req);
     		res.json({isConnected: true});
 		}
 		else{

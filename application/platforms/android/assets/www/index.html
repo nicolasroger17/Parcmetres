@@ -38,13 +38,20 @@
     </head>
     <body>
         <!-- Start of first page -->
-        <div data-role="page" id="connexion">
+        <div data-role="page" id="loading">
+            <div role="main" class="ui-content loading">
+                <img class='img-logo' src='img/logo.png'>
+                <div> SALUT </div>
+            </div><!-- /content -->
+        </div><!-- /page -->
 
+        <!-- Start of first page -->
+        <div data-role="page" id="connexion">
             <div data-role="header">
                 <h1>Connexion</h1>
             </div><!-- /header -->
 
-            <div role="main" class="ui-content">
+            <div role="main" class="ui-content">                
                 <form id='connexionForm'>
                     <input type='email' name='emailAddress' placeholder='Adresse mail'>
                     <input type='password' name='password' placeholder='Mot de passe'>

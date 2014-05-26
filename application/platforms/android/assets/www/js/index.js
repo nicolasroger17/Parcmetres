@@ -23,16 +23,34 @@ var app = {
     },
 
     onDeviceReady: function() {
+        amIConnected();
         connexion();
     }
 };
+
+function amIConnected(){
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/appli/amIConnected",
+        setCookies: "s%3AGjRvwjG5Hnji6LIHdf83SGq4.R9BoPqs2srLoJpPdnzJ%2F58xhec16%2FoFuRu%2BNlyTukTs",
+        success: function(data) {
+            if(data.iAmConnected){
+                location.href = "#home";
+            }
+            else{
+                location.href = "#connexion";
+            }
+        }
+    });
+}
 
 function connexion(){
     $("#connexionForm").submit(function(){
         console.log("submit");
         $.ajax({
             type: "POST",
-            url: "http://192.168.0.20:8080/appli/connexion",
+            url: "http://localhost:8080/appli/connexion",
+            setCookies: "s%3AGjRvwjG5Hnji6LIHdf83SGq4.R9BoPqs2srLoJpPdnzJ%2F58xhec16%2FoFuRu%2BNlyTukTs",
             data: {
                 emailAddress: $("input[name='emailAddress']:eq(0)").val(),
                 password: sha1($("input[name='password']:eq(0)").val())

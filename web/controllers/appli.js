@@ -5,6 +5,20 @@ module.exports.controller = function(app) {
 		res.render('appli/index');
 	});
 
+	app.get('/appli/amIConnected', function(req, res) {
+		console.log("amIConnected");
+		console.log(req.session.sessionID);
+		console.log(req.sessionID);
+		if(req.session.sessionID){
+			console.log("yes");
+			res.json({amIConnected: true});
+		}
+		else{
+			console.log("no");
+			res.json({amIConnected: false});
+		}
+	});
+
 	app.post('/appli/connexion', function(req, res) {
 		model.connexion(req, res);
 	});
