@@ -6,10 +6,10 @@ module.exports.controller = function(app) {
 	});
 
 	app.get('/appli/amIConnected', function(req, res) {
-		console.log("amIConnected");
-		console.log(req.session.sessionID);
-		console.log(req.sessionID);
-		if(req.session.sessionID){
+		console.log(req.body.cookie);
+		console.log(app.appliCookie);
+		if(app.hasOwnProperty('appliCookie') && app.appliCookie.hasOwnProperty(req.body.cookie)){
+			console.log(app.appliCookie[req.body[cookie]])
 			console.log("yes");
 			res.json({amIConnected: true});
 		}
@@ -20,12 +20,12 @@ module.exports.controller = function(app) {
 	});
 
 	app.post('/appli/connexion', function(req, res) {
-		model.connexion(req, res);
+		model.connexion(app, req, res);
 	});
 
 	app.get('/appli/chooseCar', function(req, res) {
 		if(req.session.sessionID){
-			model.chooseCar(req, res);
+			model.chooseCar(app, req, res);
 		}
 		else{
 			res.writeHead(301, {Location: '/'});
@@ -35,11 +35,11 @@ module.exports.controller = function(app) {
 
 	app.get('/appli/chooseLocation', function(req, res) {
 		if(req.session.sessionID){
-			model.chooseLocation(req, res);
+			model.chooseLocation(app, req, res);
 			app.post('/start', function(req, res){
-				model.start(req, res);
+				model.start(app, req, res);
 				app.post('/startSession', function(req, res){
-					model.startSession(req, res);
+					model.startSession(app, req, res);
 				});
 			});
 		}
@@ -49,7 +49,7 @@ module.exports.controller = function(app) {
 		}
 	});
 
-	app.get('/appli/stop', function(req, res) {
+	app.get('/appli/stop', function(app, req, res) {
 		if(req.session.sessionID){
 			model.stop(req, res);
 		}

@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /*
        Licensed to the Apache Software Foundation (ASF) under one
        or more contributor license agreements.  See the NOTICE file
@@ -17,9 +15,23 @@
        KIND, either express or implied.  See the License for the
        specific language governing permissions and limitations
        under the License.
-*/
+ */
 
-// Coho updates this line:
-var VERSION = "3.5.0";
+package com.nicolasroger17.parcmetres;
 
-console.log(VERSION);
+import android.os.Bundle;
+import org.apache.cordova.*;
+
+public class Parcmetres extends CordovaActivity 
+{
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        super.init();
+        // Set by <content src="index.html" /> in config.xml
+        super.loadUrl(Config.getStartUrl());
+        //super.loadUrl("file:///android_asset/www/index.html");
+    }
+}
+

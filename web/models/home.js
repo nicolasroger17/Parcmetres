@@ -2,9 +2,11 @@ var conf = require('../config/conf.js')();
 
 var home = function(req, res){
 	req.models.user.get(req.session.sessionID, function(err, result){
+		console.log("1");
 		console.log(err);
 		if(!err){
 			result.getCars(function(err, result){
+				console.log("2");
 				console.log(err);
 				if(!err){
 					var jsonId = Array();
@@ -12,6 +14,8 @@ var home = function(req, res){
 						jsonId.push({car_id : result[car].id});
 					}
 					req.models.parked.count({or:jsonId}, function(err, result){
+						console.log("3");
+						console.log(err);
 						if(!err){
 							var isParked = result > 0;
 							res.render('home/home',{firstName: req.session.firstName, lastName: req.session.lastName, isParked: isParked});

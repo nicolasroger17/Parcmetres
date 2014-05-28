@@ -25,6 +25,7 @@ module.exports.controller = function(app) {
 }
 
 function home(req, res){
+	console.log("home");
 	if(req.session.sessionID){
 		model.home(req, res);
 	}

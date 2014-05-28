@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 20, 2014 at 02:35 PM
--- Server version: 5.5.24-log
--- PHP Version: 5.4.3
+-- Host: 127.0.0.1
+-- Generation Time: May 28, 2014 at 01:21 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -46,16 +46,12 @@ INSERT INTO `car` (`id`, `name`, `status`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `parked` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `registrationPlate` varchar(10) NOT NULL,
-  `userId` int(10) NOT NULL,
+  `car_id` varchar(10) CHARACTER SET utf8mb4 NOT NULL,
   `dateBegin` datetime NOT NULL,
-  `dateEnd` datetime NOT NULL,
   `localPrice` int(10) NOT NULL,
   `locationX` int(10) NOT NULL,
-  `locationY` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `locationY` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 

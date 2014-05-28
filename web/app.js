@@ -83,13 +83,9 @@ app.set('port', process.env.PORT || 8080)
 .use(express.methodOverride())
 .use(express.cookieParser('parcmetresSecretCookie'))
 .use(express.session())
-.use(app.router)
-.use(express.session({
-  secret: 'yuio45DFS23',
-  cookie: {httpOnly: false},
-  key: 'cookie.sid'}
-));
+.use(app.router);
 
+app.appliCookie = {};
 //req.models.user.sync();
 //req.models.car.sync();
 // dynamically include routes (Controller)

@@ -31,15 +31,15 @@ var app = {
 var cookie = "";
 
 function amIConnected(){
+    console.log("cookie before send");
+    console.log(cookie);
     $.ajax({
         type: "GET",
         url: "http://localhost:8080/appli/amIConnected",
-        cookie: cookie,
+        data: {
+            cookie: cookie
+        },
         success: function(data, status, xhr) {
-            console.log(xhr);
-            cookie = xhr.getResponseHeader('Set-Cookie');
-            console.log(xhr.getAllResponseHeaders());
-            console.log(data.cookie);
             if(data.iAmConnected){
                 location.href = "#home";
             }
@@ -61,14 +61,8 @@ function connexion(){
                 password: sha1($("input[name='password']:eq(0)").val())
             },
             success: function(data, status, xhr) {
-                cookie = xhr.getResponseHeader('Set-Cookie');
-                console.log(xhr.getAllResponseHeaders());
-                console.log(xhr.getResponseHeader('Connection'));
-                console.log("cookie");
+                cookie = data.cookie;
                 console.log(cookie);
-                console.log(data);
-                console.log(data.cookie);
-                console.log($.cookie());
                 if(data.isConnected)
                     location.href = "#home";
             }

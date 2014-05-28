@@ -2,14 +2,19 @@ var conf = require('../config/conf.js')(),
 	fs = require('fs'),
 	path = require('path');
 
-var connexion = function(req, res){
+var connexion = function(app, req, res){
 	console.log("model connexion");
-	console.log(req.body);
 	req.models.user.find(req.body, function(err, result){
 		if(!err && result.length == 1){
-			req.session.sessionID = result[0].id; req.session.lastName = result[0].lastName; req.session.firstName = result[0].firstName;
-    		console.log(req.session.sessionID);
-    		res.json({isConnected: true});
+			app.appliCookie[req.sessionID] = {
+				id: result[0].id,
+    			lastName: result[0].lastName,
+    			firstName: result[0].firstName
+			}
+    		console.log(app.appliCookie);
+    		res.json({isConnected: true,
+    					cookie: req.sessionID
+    		});
 		}
 		else{
 			res.json({isConnected: false});
@@ -17,7 +22,7 @@ var connexion = function(req, res){
 	});
 }
 
-var chooseCar = function(req, res){
+var chooseCar = function(app, req, res){
 	// check if a user with the same mail address exists
 	req.models.user.get(req.session.sessionID, function(err, result){
 		console.log("user");
@@ -42,7 +47,7 @@ var chooseCar = function(req, res){
 	});
 }
 
-var chooseLocation = function(req, res){
+var chooseLocation = function(app, req, res){
 	// check if a user with the same mail address exists
 	req.models.car.get(req.query.id, function(err, car){
 		if(!err){
@@ -71,7 +76,7 @@ var chooseLocation = function(req, res){
 	});
 }
 
-var start = function(req, res){
+var start = function(app, req, res){
 	// define the location
 	var location = {locationX : req.body.locationX, locationY : req.body.locationY};
 	// check if a user with the same mail address exists
@@ -109,7 +114,7 @@ var start = function(req, res){
 }
 
 // todo insert in parked
-var startSession = function(req, res){
+var startSession = function(app, req, res){
 	console.log("startsession");
 	console.log(req.body);
 	// define the location
@@ -140,7 +145,7 @@ var startSession = function(req, res){
 	});
 }
 
-var stop = function(req, res){
+var stop = function(app, req, res){
 	req.models.user.get(req.session.sessionID, function(err, result){
 		console.log(err);
 		if(!err){
