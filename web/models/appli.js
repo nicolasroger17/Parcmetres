@@ -22,6 +22,37 @@ var connexion = function(app, req, res){
 	});
 }
 
+var myInformations = function(id, req, res){
+	// check if a user with the same mail address exists
+	req.models.user.get(id, function(err, result){
+		if(!err){
+			res.json(result);
+		}
+		else{
+			res.json({err: true});
+		}
+	});
+}
+
+var modifyMyInformations = function(id ,req, res){
+	req.models.user.get(id, function(err, result){
+		if(!err){
+			for(var key in req.body){
+				result[key] = req.body[key];
+	        }
+	        result.save(function(err){
+	        	if(err)
+	        		console.log(err);
+	        	res.json({err: false});
+	        });	        
+		}
+		else{
+			console.log(err);
+			res.json({err: true});
+		}
+	});
+}
+
 var chooseCar = function(app, req, res){
 	// check if a user with the same mail address exists
 	req.models.user.get(req.session.sessionID, function(err, result){
@@ -185,3 +216,5 @@ var stop = function(app, req, res){
 }
 
 exports.connexion = connexion;
+exports.myInformations = myInformations;
+exports.modifyMyInformations = modifyMyInformations;

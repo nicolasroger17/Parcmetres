@@ -51,7 +51,7 @@
                 <h1>Connexion</h1>
             </div><!-- /header -->
 
-            <div role="main" class="ui-content">                
+            <div role="main" class="ui-content">           
                 <form id='connexionForm' class='connexion' >
                     <input type='email' name='emailAddress' placeholder='Adresse mail'>
                     <input type='password' name='password' placeholder='Mot de passe'>
@@ -69,20 +69,58 @@
             </div><!-- /header -->
 
             <div role="main" class="ui-content">
+                <a href="#o" data-rel="popup">cookie</a>
+                <div data-role="popup" id="o">
+                    <p>fdfdfd</p>
+                </div>
+
                 <div id="fonctions">
                     <div id="monCompte">
-                        <p><a href="/myInformations">Mon compte</a></p>
+                        <p><a id="myInformationsBtn">Mon compte</a></p>
                     </div>
                     <div id="mesVoitures">
-                        <p><a href= "/myCars">Gérer mes voitures</a></p>
+                        <p><a href= "#myCars">Gérer mes voitures</a></p>
                     </div>
                 </div>
                 <div id="demarrer">
-                    <p><a href='/chooseCar'>Démarrer</a></p>
+                    <p><a href='#chooseCar'>Démarrer</a></p>
                 </div>
             </div><!-- /content -->
         </div><!-- /page -->
-        
+
+        <!-- Start of second page -->
+        <div data-role="page" id="myInformations">
+
+            <div data-role="header">
+                <h1>Mes informations</h1>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <form id='myInformtionsForm'>
+                    <label>Adresse mail</label>
+                    <input type='email' name='emailAddress' placeholder='Adresse mail'>
+                    
+                    <label>Nom</label>
+                    <input type='text' name='lastName' placeholder='Nom'>
+                    
+                    <label>Prenom</label>
+                    <input type='text' name='firstName' placeholder='Prénom'>
+
+                    <label>Adresse</label>
+                    <input type='text' name='address' placeholder='Adresse postale'>
+                    
+                    <label>Code postal</label>
+                    <input type='text' name='zipCode' placeholder='Code postal'>
+                    
+                    <label>Numero de telephone</label>
+                    <input type='text' name='phone' placeholder='Numéro de téléphone'>
+
+                    <input type='submit' value='modifier'>
+                </form>
+            </div><!-- /content -->
+
+        </div><!-- /page -->
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript">
             app.initialize();

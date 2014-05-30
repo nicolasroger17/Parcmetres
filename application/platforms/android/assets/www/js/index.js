@@ -20,11 +20,22 @@ var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        $("#o").on('popupafteropen', function(){
+            $(this).html(cookie);
+        });
+        $("#i").on('popupafteropen', function(){
+            $(this).html(cookie);
+        });
+        $("#myInformationsBtn").click(function(){
+            console.log("click informations");
+            myInformations();
+        });
     },
 
     onDeviceReady: function() {
         amIConnected();
         connexion();
+        modifyMyInformations();
     }
 };
 
@@ -39,7 +50,7 @@ function amIConnected(){
         data: {
             cookie: cookie
         },
-        success: function(data, status, xhr) {
+        success: function(data) {
             if(data.iAmConnected){
                 location.href = "#home";
             }
@@ -60,7 +71,7 @@ function connexion(){
                 emailAddress: $("input[name='emailAddress']:eq(0)").val(),
                 password: sha1($("input[name='password']:eq(0)").val())
             },
-            success: function(data, status, xhr) {
+            success: function(data) {
                 cookie = data.cookie;
                 console.log(cookie);
                 if(data.isConnected)
@@ -68,6 +79,72 @@ function connexion(){
             }
         });
         return false;
+    });
+}
+
+function myInformations(){
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/appli/myInformations",
+        data: {
+            cookie: cookie
+        },
+        success: function(data) {
+            if(data.err == undefined){
+                $("input[name='emailAddress']").val(data.emailAddress);
+                $("input[name='lastName']").val(data.lastName);
+                $("input[name='firstName']").val(data.firstName);
+                $("input[name='address']").val(data.address);
+                $("input[name='zipCode']").val(data.zipCode);
+                $("input[name='phone']").val(data.phone);
+                location.href = "#myInformations";
+            }
+            else{
+                location.href = "#home";
+            }
+        }
+    });
+}
+
+function modifyMyInformations(){
+    $("#myInformtionsForm").submit(function(){
+        console.log("submit my informations");
+        var infos = $("#myInformtionsForm").serialize();
+        infos += "&cookie="+cookie;
+        console.log(infos);
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/appli/modifyMyInformations",
+            data: infos,
+            success: function(data) {
+                console.log(data);
+            }
+        });
+        return false;
+    });
+}
+
+function myCars(){
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/appli/myInformations",
+        data: {
+            cookie: cookie
+        },
+        success: function(data) {
+            if(data.err == undefined){
+                $("input[name='emailAddress']").val(data.emailAddress);
+                $("input[name='lastName']").val(data.lastName);
+                $("input[name='firstName']").val(data.firstName);
+                $("input[name='address']").val(data.address);
+                $("input[name='zipCode']").val(data.zipCode);
+                $("input[name='phone']").val(data.phone);
+                location.href = "#myInformations";
+            }
+            else{
+                location.href = "#home";
+            }
+        }
     });
 }
 

@@ -6,15 +6,10 @@ module.exports.controller = function(app) {
 	});
 
 	app.get('/appli/amIConnected', function(req, res) {
-		console.log(req.body.cookie);
-		console.log(app.appliCookie);
-		if(app.hasOwnProperty('appliCookie') && app.appliCookie.hasOwnProperty(req.body.cookie)){
-			console.log(app.appliCookie[req.body[cookie]])
-			console.log("yes");
+		if(isConnected(app, req)){
 			res.json({amIConnected: true});
 		}
 		else{
-			console.log("no");
 			res.json({amIConnected: false});
 		}
 	});
@@ -23,13 +18,30 @@ module.exports.controller = function(app) {
 		model.connexion(app, req, res);
 	});
 
+	app.get('/appli/myInformations', function(req, res) {
+		if(isConnected(app, req)){
+			model.myInformations(myId(app, req), req, res);
+		}
+		else{
+			res.json({err : true});
+		}
+	});
+
+	app.post('/appli/modifyMyInformations', function(req, res) {
+		if(isConnected(app, req)){
+			model.modifyMyInformations(myId(app, req), req, res);
+		}
+		else{
+			res.json({err : true});
+		}
+	});
+
 	app.get('/appli/chooseCar', function(req, res) {
 		if(req.session.sessionID){
 			model.chooseCar(app, req, res);
 		}
 		else{
-			res.writeHead(301, {Location: '/'});
-			res.end();
+			res.json({err : true});
 		}
 	});
 
@@ -44,8 +56,7 @@ module.exports.controller = function(app) {
 			});
 		}
 		else{
-			res.writeHead(301, {Location: '/'});
-			res.end();
+			res.json({err : true});
 		}
 	});
 
@@ -54,8 +65,25 @@ module.exports.controller = function(app) {
 			model.stop(req, res);
 		}
 		else{
-			res.writeHead(301, {Location: '/'});
-			res.end();
+			res.json({err : true});
 		}
 	});
+}
+
+function isConnected(app, req){
+	var cookie = req.body.cookie || req.query.cookie;
+	console.log(cookie);	
+	if(app.hasOwnProperty('appliCookie') && app.appliCookie.hasOwnProperty(cookie)){
+		console.log("connected");
+		return true;
+	}
+	console.log("disconnected");
+	return false;
+}
+
+function myId(app, req){
+	console.log("id");
+	var cookie = req.body.cookie || req.query.cookie;
+	console.log(app.appliCookie[cookie]);
+	return app.appliCookie[cookie].id;
 }
