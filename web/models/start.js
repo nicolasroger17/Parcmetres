@@ -3,7 +3,6 @@ var conf = require('../config/conf.js')(),
 	path = require('path');
 
 var chooseCar = function(req, res){
-	// check if a user with the same mail address exists
 	req.models.user.get(req.session.sessionID, function(err, result){
 		console.log("user");
 		console.log(err);
@@ -28,7 +27,6 @@ var chooseCar = function(req, res){
 }
 
 var chooseLocation = function(req, res){
-	// check if a user with the same mail address exists
 	req.models.car.get(req.query.id, function(err, car){
 		if(!err){
 			car.getUsers(function(err, user){
@@ -95,12 +93,7 @@ var start = function(req, res){
 
 // todo insert in parked
 var startSession = function(req, res){
-	console.log("startsession");
-	console.log(req.body);
-	// define the location
-	var today = new Date();
-	console.log(today);
-	// check if a user with the same mail address exists
+	req.body.dateBegin = createDate();
 	req.models.car.get(req.body.car_id, function(err, car){
 		if(!err){
 			car.getUsers(function(err, user){
@@ -137,15 +130,6 @@ var stop = function(req, res){
 						jsonId.push({car_id : result[car].id});
 					}
 					console.log(jsonId);
-					/*req.models.parked.find({or:jsonId}).each(function(element){
-						console.log("remove element");
-						element.remove();
-					}).save(function(){
-						setTimeout(function(){
-							res.writeHead(301, {Location: '/home'});
-							res.end();
-						},2000);
-					});*/
 					req.models.parked.find({or:jsonId}).remove(function(element){
 						res.writeHead(301, {Location: '/home'});
 						res.end();
@@ -162,6 +146,17 @@ var stop = function(req, res){
 			res.end();
 		}
 	});
+}
+
+function createDate(){
+	var date = new Date();
+    return date.getUTCFullYear() + "-" + twoDigits(1 + date.getUTCMonth()) + "-" + twoDigits(date.getUTCDate()) + " " + twoDigits(date.getUTCHours()) + ":" + twoDigits(date.getUTCMinutes()) + ":" + twoDigits(date.getUTCSeconds());
+};
+
+function twoDigits(d) {
+    if(0 <= d && d < 10) return "0" + d.toString();
+    if(-10 < d && d < 0) return "-0" + (-1*d).toString();
+    return d.toString();
 }
 
 exports.chooseCar = chooseCar;

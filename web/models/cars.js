@@ -47,7 +47,6 @@ function checkFields(req){
 }
 
 var myCars = function(req, res){
-	// check if a user with the same mail address exists
 	req.models.user.get(req.session.sessionID, function(err, user){
 		user.getCars(function(err, result){
 			if(!err){
@@ -62,7 +61,6 @@ var myCars = function(req, res){
 }
 
 var modifyCar = function(req, res){
-	// check if a user with the same mail address exists
 	req.models.car.get(req.body.id, function(err, result){
 		if(!err){
 			result.name = req.body.name;
@@ -98,7 +96,6 @@ var modifyCar = function(req, res){
 }
 
 var deleteCar = function(req, res){
-	// check if a user with the same mail address exists
 	req.models.car.get(req.body.id, function (err, result) {
 		if(!err){
 			result.remove(function(err){

@@ -42,7 +42,7 @@ function marker(position){
          map: map,
          position: position,
          animation: google.maps.Animation.DROP,
-         draggable:true,
+         draggable: false,
          title: 'Choisissez votre position !'
       }
    );

@@ -16,26 +16,22 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var serverIp = "http://localhost:8080/";
 var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        $("#o").on('popupafteropen', function(){
-            $(this).html(cookie);
-        });
-        $("#i").on('popupafteropen', function(){
-            $(this).html(cookie);
-        });
-        $("#myInformationsBtn").click(function(){
-            console.log("click informations");
-            myInformations();
-        });
     },
 
     onDeviceReady: function() {
         amIConnected();
         connexion();
+        $("#myInformationsBtn").click(function(){myInformations();});
         modifyMyInformations();
+        $("#myCarsBtn").click(function(){myCars();});
+        $("#chooseCar").click(function(){chooseCar();});
+        chooseLocation();
     }
 };
 
@@ -46,7 +42,7 @@ function amIConnected(){
     console.log(cookie);
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/appli/amIConnected",
+        url: serverIp+"appli/amIConnected",
         data: {
             cookie: cookie
         },
@@ -66,7 +62,7 @@ function connexion(){
         console.log("submit");
         $.ajax({
             type: "POST",
-            url: "http://localhost:8080/appli/connexion",
+            url: serverIp+"appli/connexion",
             data: {
                 emailAddress: $("input[name='emailAddress']:eq(0)").val(),
                 password: sha1($("input[name='password']:eq(0)").val())
@@ -85,7 +81,7 @@ function connexion(){
 function myInformations(){
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/appli/myInformations",
+        url: serverIp+"appli/myInformations",
         data: {
             cookie: cookie
         },
@@ -109,12 +105,11 @@ function myInformations(){
 function modifyMyInformations(){
     $("#myInformtionsForm").submit(function(){
         console.log("submit my informations");
-        var infos = $("#myInformtionsForm").serialize();
-        infos += "&cookie="+cookie;
+        var infos = $("#myInformtionsForm").serialize() + "&cookie="+cookie;
         console.log(infos);
         $.ajax({
             type: "POST",
-            url: "http://localhost:8080/appli/modifyMyInformations",
+            url: serverIp+"appli/modifyMyInformations",
             data: infos,
             success: function(data) {
                 console.log(data);
@@ -127,24 +122,113 @@ function modifyMyInformations(){
 function myCars(){
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/appli/myInformations",
+        url: serverIp+"appli/myCars",
         data: {
             cookie: cookie
         },
         success: function(data) {
             if(data.err == undefined){
-                $("input[name='emailAddress']").val(data.emailAddress);
-                $("input[name='lastName']").val(data.lastName);
-                $("input[name='firstName']").val(data.firstName);
-                $("input[name='address']").val(data.address);
-                $("input[name='zipCode']").val(data.zipCode);
-                $("input[name='phone']").val(data.phone);
-                location.href = "#myInformations";
+                var html = "";
+                for(car in data){
+                    html += "<div class='myCars'>"+
+                                "<img style='width: 200px;margin: auto;' src='"+serverIp+"webroot/images/"+data[car]['id']+"/photo.jpg'>"+
+                                "<p>"+data[car]['name']+"</p>"+
+                                "<p>"+data[car]['id']+"</p>"+
+                            "</div>";
+                }
+                $("#myCarsContainer").html(html);
+                location.href = "#myCars";
             }
             else{
                 location.href = "#home";
             }
         }
+    });
+}
+
+var chosenCarId = "";
+function chooseCar(){
+    $.ajax({
+        type: "GET",
+        url: serverIp+"appli/myCars",
+        data: {
+            cookie: cookie
+        },
+        success: function(data) {
+            if(data.err == undefined){
+                var html = "";
+                for(car in data){
+                    html += "<div class='chooseCar' car_id='"+data[car]['id']+"' car_name='"+data[car]['name']+"'>"+
+                                "<img style='width: 200px;margin: auto;' src='"+serverIp+"webroot/images/"+data[car]['id']+"/photo.jpg'>"+
+                                "<p>"+data[car]['name']+"</p>"+
+                                "<p>"+data[car]['id']+"</p>"+
+                            "</div>";
+                }
+                $("#chooseCarContainer").html(html);
+                $(".chooseCar").each(function(){
+                    $(this).click(function(){
+                        $("#start_car_id").val($(this).attr("car_id"));
+                        $("#start_car_name").val($(this).attr("car_name"));
+                        $("#start_img").attr("src", serverIp+"webroot/images/"+$(this).attr("car_nid")+"/photo.jpg");
+                        location.href = "#chooseLocation";
+                        setTimeout(function(){
+                            startMap();
+                        }, 500);
+                    });
+                });
+                location.href = "#chooseCar";
+            }
+            else{
+                location.href = "#home";
+            }
+        }
+    });
+}
+
+function chooseLocation(){
+    $("#chooseLocationForm").submit(function(){
+        location.href="#start";
+        getAddress();
+        return false;
+    });
+}
+
+function getAddress(){
+    $.ajax({
+        type: "GET",
+        url: "https://maps.googleapis.com/maps/api/geocode/json?latlng="+$("input[name='locationX']").val()+","+$("input[name='locationY']").val()+"&sensor=true",
+        success: function(data) {
+            $("#position").html(data['results'][0]['formatted_address']);
+        }
+    });
+}
+
+function start(){
+    $("#startForm").submit(function(){
+        location.href="#start";
+        return false;
+    });
+}
+
+function startMap(){
+    $('#map-canvas').gmap().bind('init', function(evt, map) {
+        $('#map-canvas').gmap('getCurrentPosition', function(position, status) {
+            if ( status === 'OK' ) {
+                var clientPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                $("input[name='locationX']").val(position.coords.latitude);
+                $("input[name='locationY']").val(position.coords.longitude);
+                $('#map-canvas').gmap('addMarker', {'position': clientPosition, 'bounds': true});
+                $("#map-canvas").gmap({'zoom':7});
+                $('#map-canvas').gmap('addShape', 'Circle', {
+                    'strokeWeight': 0,
+                    'fillColor': "#008595",
+                    'fillOpacity': 0.25,
+                    'center': clientPosition,
+                    'radius': 200,
+                    'clickable': false
+                });
+            }
+        });   
     });
 }
 
