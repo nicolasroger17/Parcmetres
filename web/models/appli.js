@@ -66,12 +66,14 @@ var myCars = function(id, req, res){
 	});
 }
 
-var startSession = function(req, res){
+var startSession = function(id, req, res){
 	req.body.dateBegin = createDate();
+	console.log(req.body.locationX);
+	console.log(req.body.locationY);
 	req.models.car.get(req.body.car_id, function(err, car){
 		if(!err){
 			car.getUsers(function(err, user){
-				if(!err && user[0].id == req.session.sessionID){
+				if(!err && user[0].id == id){
 					req.models.parked.create(req.body, function(err, result){
 						if(err)
 							console.log(err);

@@ -46,24 +46,9 @@ module.exports.controller = function(app) {
 		}
 	});
 
-	app.get('/appli/chooseCar', function(req, res) {
-		if(req.session.sessionID){
-			model.chooseCar(app, req, res);
-		}
-		else{
-			res.json({err : true});
-		}
-	});
-
-	app.get('/appli/chooseLocation', function(req, res) {
-		if(req.session.sessionID){
-			model.chooseLocation(app, req, res);
-			app.post('/start', function(req, res){
-				model.start(app, req, res);
-				app.post('/startSession', function(req, res){
-					model.startSession(app, req, res);
-				});
-			});
+	app.post('/appli/startSession', function(req, res) {
+		if(isConnected(app, req)){
+			model.startSession(myId(app, req), req, res);
 		}
 		else{
 			res.json({err : true});
@@ -71,8 +56,8 @@ module.exports.controller = function(app) {
 	});
 
 	app.get('/appli/stop', function(app, req, res) {
-		if(req.session.sessionID){
-			model.stop(req, res);
+		if(isConnected(app, req)){
+			model.stop(myId(app, req), req, res);
 		}
 		else{
 			res.json({err : true});

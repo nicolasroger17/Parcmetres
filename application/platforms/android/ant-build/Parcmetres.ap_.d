@@ -51,4 +51,6 @@ D:\wamp\www\Parcmetres\application\platforms\android\assets\www\js\jquery.cookie
 D:\wamp\www\Parcmetres\application\platforms\android\assets\www\js\jquery.js \
 D:\wamp\www\Parcmetres\application\platforms\android\assets\www\js\jquery.mobile.min.js \
 D:\wamp\www\Parcmetres\application\platforms\android\assets\www\js\jquery.mobile.min.map \
+D:\wamp\www\Parcmetres\application\platforms\android\assets\www\js\jquery.ui.map.extensions.js \
+D:\wamp\www\Parcmetres\application\platforms\android\assets\www\js\jquery.ui.map.js \
 D:\wamp\www\Parcmetres\application\platforms\android\ant-build\AndroidManifest.xml \

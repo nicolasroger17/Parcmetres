@@ -32,6 +32,7 @@ var app = {
         $("#myCarsBtn").click(function(){myCars();});
         $("#chooseCar").click(function(){chooseCar();});
         chooseLocation();
+        start();
     }
 };
 
@@ -205,7 +206,14 @@ function getAddress(){
 
 function start(){
     $("#startForm").submit(function(){
-        location.href="#start";
+        $.ajax({
+            type: "POST",
+            url: serverIp+"appli/startSession",
+            data: $("#startForm").serialize() + "&cookie="+cookie,
+            success: function(data) {
+                location.href = "#home";
+            }
+        });
         return false;
     });
 }
@@ -213,20 +221,11 @@ function start(){
 function startMap(){
     $('#map-canvas').gmap().bind('init', function(evt, map) {
         $('#map-canvas').gmap('getCurrentPosition', function(position, status) {
-            if ( status === 'OK' ) {
+            if ( status == "OK" ) {
                 var clientPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                $('#map-canvas').gmap('addMarker', {'position': clientPosition, 'bounds': true});
                 $("input[name='locationX']").val(position.coords.latitude);
                 $("input[name='locationY']").val(position.coords.longitude);
-                $('#map-canvas').gmap('addMarker', {'position': clientPosition, 'bounds': true});
-                $("#map-canvas").gmap({'zoom':7});
-                $('#map-canvas').gmap('addShape', 'Circle', {
-                    'strokeWeight': 0,
-                    'fillColor': "#008595",
-                    'fillOpacity': 0.25,
-                    'center': clientPosition,
-                    'radius': 200,
-                    'clickable': false
-                });
             }
         });   
     });
