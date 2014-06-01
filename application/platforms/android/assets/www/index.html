@@ -62,7 +62,21 @@
                     <input type='password' name='password' placeholder='Mot de passe'>
                     <input type='submit' value='Connexion'>
                 </form>
-                <a href='/lostPassword'>Mot de passe oublié</a>
+                <a href='#lostPassword'>Mot de passe oublié</a>
+            </div><!-- /content -->
+        </div><!-- /page -->
+
+        <!-- Start of first page -->
+        <div data-role="page" id="lostPassword">
+            <div data-role="header">
+                <h1>Mot de passe perdu</h1>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">           
+                <form id='lostPasswordForm'>
+                    <input type='email' name='emailAddress' placeholder='Adresse mail'>
+                    <input type='submit' value='Réinitialiser'>
+                </form>
             </div><!-- /content -->
         </div><!-- /page -->
 

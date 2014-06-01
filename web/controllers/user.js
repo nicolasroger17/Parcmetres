@@ -32,9 +32,6 @@ module.exports.controller = function(app) {
 	app.get('/lostPassword', function(req, res) {
 		if(!req.session.sessionID){
 			res.render('user/lostPassword');
-			app.post('/resetPassword', function(req, res){
-				model.resetPassword(req, res);
-			});
 		}
 		else{
 			res.writeHead(301,
@@ -42,6 +39,10 @@ module.exports.controller = function(app) {
 			);
 			res.end();
 		}
+	});
+
+	app.post('/resetPassword', function(req, res){
+		model.resetPassword(req, res);
 	});
 
 }

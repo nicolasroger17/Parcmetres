@@ -27,6 +27,7 @@ var app = {
     onDeviceReady: function() {
         amIConnected();
         connexion();
+        lostPassword();
         $("#myInformationsBtn").click(function(){myInformations();});
         modifyMyInformations();
         $("#myCarsBtn").click(function(){myCars();});
@@ -79,6 +80,20 @@ function connexion(){
                 console.log(cookie);
                 if(data.isConnected)
                     home();
+            }
+        });
+        return false;
+    });
+}
+
+function lostPassword(){
+    $("#lostPasswordForm").submit(function(){
+        $.ajax({
+            type: "POST",
+            url: serverIp+"resetPassword",
+            data: $("#lostPasswordForm").serialize(),
+            success: function(data) {
+                location.href = "#connexion";
             }
         });
         return false;
