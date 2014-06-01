@@ -30,7 +30,14 @@ var app = {
         $("#myInformationsBtn").click(function(){myInformations();});
         modifyMyInformations();
         $("#myCarsBtn").click(function(){myCars();});
-        $("#chooseCar").click(function(){chooseCar();});
+        $("#chooseCar").click(function(){
+            if($(this).attr("parked")=="false"){
+                chooseCar();
+            }
+            else{
+                stop();
+            }            
+        });
         chooseLocation();
         start();
     }
@@ -60,7 +67,6 @@ function amIConnected(){
 
 function connexion(){
     $("#connexionForm").submit(function(){
-        console.log("submit");
         $.ajax({
             type: "POST",
             url: serverIp+"appli/connexion",
@@ -72,10 +78,31 @@ function connexion(){
                 cookie = data.cookie;
                 console.log(cookie);
                 if(data.isConnected)
-                    location.href = "#home";
+                    home();
             }
         });
         return false;
+    });
+}
+
+function home(){
+    $.ajax({
+        type: "GET",
+        url: serverIp+"appli/amIParked",
+        data: {
+            cookie : cookie
+        },
+        success: function(data) {
+            if(data.amIParked){
+                $("#chooseCar").attr("parked", "true");
+                $("#chooseCar").html("Arrêter");
+            }
+            else{
+                $("#chooseCar").attr("parked", "false");
+                $("#chooseCar").html("Démarrer");
+            }
+            location.href = "#home";
+        }
     });
 }
 
@@ -97,7 +124,7 @@ function myInformations(){
                 location.href = "#myInformations";
             }
             else{
-                location.href = "#home";
+                home();
             }
         }
     });
@@ -141,7 +168,7 @@ function myCars(){
                 location.href = "#myCars";
             }
             else{
-                location.href = "#home";
+                home();
             }
         }
     });
@@ -180,7 +207,7 @@ function chooseCar(){
                 location.href = "#chooseCar";
             }
             else{
-                location.href = "#home";
+                home();
             }
         }
     });
@@ -211,10 +238,26 @@ function start(){
             url: serverIp+"appli/startSession",
             data: $("#startForm").serialize() + "&cookie="+cookie,
             success: function(data) {
-                location.href = "#home";
+                home();
             }
         });
         return false;
+    });
+}
+
+function stop(){
+    $.ajax({
+        type: "POST",
+        url: serverIp+"appli/stop",
+        data: {
+            cookie: cookie
+        },
+        success: function(data) {
+            if(!data.amIParked){
+                $("#chooseCar").attr("parked", "false");
+                $("#chooseCar").html("Démarrer");
+            }
+        }
     });
 }
 

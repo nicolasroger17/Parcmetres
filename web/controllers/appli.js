@@ -55,7 +55,7 @@ module.exports.controller = function(app) {
 		}
 	});
 
-	app.get('/appli/stop', function(app, req, res) {
+	app.post('/appli/stop', function(req, res) {
 		if(isConnected(app, req)){
 			model.stop(myId(app, req), req, res);
 		}
@@ -70,6 +70,15 @@ module.exports.controller = function(app) {
 		}
 		else{
 			res.json({amIConnected: false});
+		}
+	});
+
+	app.get('/appli/amIParked', function(req, res) {
+		if(isConnected(app, req)){
+			model.amIParked(myId(app, req), req, res);
+		}
+		else{
+			res.json({err: true});
 		}
 	});
 }

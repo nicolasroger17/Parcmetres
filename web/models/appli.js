@@ -22,6 +22,39 @@ var connexion = function(app, req, res){
 	});
 }
 
+var amIParked = function(id, req, res){
+	req.models.user.get(id, function(err, result){
+		console.log(err);
+		if(!err){
+			result.getCars(function(err, result){
+				console.log(err);
+				if(!err){
+					var jsonId = Array();
+					for(car in result){
+						jsonId.push({car_id : result[car].id});
+					}
+					req.models.parked.count({or:jsonId}, function(err, result){
+						console.log(err);
+						if(!err){
+							var isParked = result > 0;
+							res.json({amIParked: isParked});
+						}
+						else{
+							res.json({err: true});
+						}
+					});
+				}
+				else{
+					res.json({err: true});
+				}
+			});
+		}
+		else{
+			res.json({err: true});
+		}
+	});
+}
+
 var myInformations = function(id, req, res){
 	// check if a user with the same mail address exists
 	req.models.user.get(id, function(err, result){
@@ -92,8 +125,8 @@ var startSession = function(id, req, res){
 }
 
 
-var stop = function(app, req, res){
-	req.models.user.get(req.session.sessionID, function(err, result){
+var stop = function(id, req, res){
+	req.models.user.get(id, function(err, result){
 		console.log(err);
 		if(!err){
 			result.getCars(function(err, result){
@@ -105,7 +138,7 @@ var stop = function(app, req, res){
 					}
 					console.log(jsonId);
 					req.models.parked.find({or:jsonId}).remove(function(element){
-						res.json({err: false});
+						res.json({amIParked: false});
 					});
 				}
 				else{
@@ -136,3 +169,4 @@ exports.modifyMyInformations = modifyMyInformations;
 exports.myCars = myCars;
 exports.startSession = startSession;
 exports.stop = stop;
+exports.amIParked = amIParked;
