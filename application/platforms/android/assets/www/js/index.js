@@ -17,7 +17,7 @@
  * under the License.
  */
 
-var serverIp = "http://192.168.0.20:8080/";
+var serverIp = "http://172.16.239.114:8080/";
 var app = {
     // Application Constructor
     initialize: function() {
@@ -47,8 +47,6 @@ var app = {
 var cookie = "";
 
 function amIConnected(){
-    console.log("cookie before send");
-    console.log(cookie);
     $.ajax({
         type: "GET",
         url: serverIp+"appli/amIConnected",

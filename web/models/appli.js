@@ -124,7 +124,6 @@ var startSession = function(id, req, res){
 	});
 }
 
-
 var stop = function(id, req, res){
 	req.models.user.get(id, function(err, result){
 		console.log(err);
@@ -152,6 +151,19 @@ var stop = function(id, req, res){
 	});
 }
 
+var isParked = function(req, res){
+	console.log(req.body);
+	console.log(req.body.car_id);
+	req.models.parked.get(req.body.car_id, function(err, result){
+		if(!err){
+			res.json({isParked: true});
+		}
+		else{
+			res.json({isParked: false});
+		}
+	});
+}
+
 function createDate(){
 	var date = new Date();
     return date.getUTCFullYear() + "-" + twoDigits(1 + date.getUTCMonth()) + "-" + twoDigits(date.getUTCDate()) + " " + twoDigits(date.getUTCHours()) + ":" + twoDigits(date.getUTCMinutes()) + ":" + twoDigits(date.getUTCSeconds());
@@ -170,3 +182,4 @@ exports.myCars = myCars;
 exports.startSession = startSession;
 exports.stop = stop;
 exports.amIParked = amIParked;
+exports.isParked = isParked;
