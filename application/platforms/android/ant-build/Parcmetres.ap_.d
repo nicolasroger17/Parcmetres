@@ -35,6 +35,7 @@ D:\wamp\www\Parcmetres\application\platforms\android\assets\www\css \
 D:\wamp\www\Parcmetres\application\platforms\android\assets\www\img \
 D:\wamp\www\Parcmetres\application\platforms\android\assets\www\index.html \
 D:\wamp\www\Parcmetres\application\platforms\android\assets\www\js \
+D:\wamp\www\Parcmetres\application\platforms\android\assets\www\plugins \
 D:\wamp\www\Parcmetres\application\platforms\android\assets\www\css\chooseCar.css \
 D:\wamp\www\Parcmetres\application\platforms\android\assets\www\css\chooseLocation.css \
 D:\wamp\www\Parcmetres\application\platforms\android\assets\www\css\connexion.css \
