@@ -1,10 +1,6 @@
 var model = require('../models/appli');
 
 module.exports.controller = function(app) {
-	app.get('/appli/home', function(req, res) {
-		res.render('appli/index');
-	});
-
 	app.post('/appli/connexion', function(req, res) {
 		model.connexion(app, req, res);
 	});
@@ -80,6 +76,10 @@ module.exports.controller = function(app) {
 		else{
 			res.json({err: true});
 		}
+	});
+
+	app.post('/appli/isParked', function(req, res) {
+		model.isParked(req, res);
 	});
 }
 

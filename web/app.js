@@ -34,8 +34,7 @@ app.set('port', process.env.PORT || 8080)
       })
 
       models.car = db.define("car", {
-         name          : String,
-         status        : {type: "text", defaultValue: "free"}
+         name          : String
       },
       {
          id: ['id'],
