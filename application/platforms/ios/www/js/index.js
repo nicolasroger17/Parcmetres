@@ -47,8 +47,6 @@ var app = {
 var cookie = "";
 
 function amIConnected(){
-    console.log("cookie before send");
-    console.log(cookie);
     $.ajax({
         type: "GET",
         url: serverIp+"appli/amIConnected",

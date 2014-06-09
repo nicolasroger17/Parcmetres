@@ -3,3 +3,14 @@
     width: 50%;
     text-align: center;
 }
+
+#connexion {
+	width: 50%;
+	height: 50%;
+	margin-right: 25%;
+	margin-left: 25%;
+}
+a{
+	text-align: center;
+	display: block;
+}

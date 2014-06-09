@@ -1,6 +1,4 @@
-.loading{
-	background: white;
-}
+
 
 .img-logo{
 	width: 137px;
@@ -13,4 +11,62 @@
     right: 0;
 
     margin: auto;
+}
+
+#home {
+	width: 50%;
+	height: 50%;
+	margin-right: 25%;
+	margin-left: 25%;
+}
+
+#myInformations {
+	width: 50%;
+	height: 50%;
+	margin-right: 25%;
+	margin-left: 25%;
+	background-color: white;
+}
+
+#myCars{
+	width: 50%;
+	height: 50%;
+	margin-right: 25%;
+	margin-left: 25%;
+}
+
+#myInformationsBtn {
+	margin: auto;
+	color: black;
+	background-color: gray;
+	width: 25%;
+	text-shadow: none;
+	border-color: black;
+}
+
+#myCarsBtn {
+	margin: auto;
+	color: black;
+	background-color: white;
+	width: 25%;
+	text-shadow: none;
+	border-color: black;
+}
+
+#chooseCar {
+	margin: auto;
+	color: black;
+	width: 25%;
+	text-shadow: none;
+	border-color: black;
+}
+
+#chooseCar[parked="true"] {
+	background-color: #843839;
+	
+}
+
+#chooseCar[parked="false"] {
+	background-color: #ccbdbd;
+
 }

@@ -202,63 +202,69 @@
         <Compile Include="Plugins\org.apache.cordova.geolocation\Geolocation.cs" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\cordova.js" />
+        <Content Include="www/cordova.js" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\cordova_plugins.js" />
+        <Content Include="www/cordova_plugins.js" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\css\chooseCar.css" />
+        <Content Include="www/css/chooseCar.css" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\css\chooseLocation.css" />
+        <Content Include="www/css/chooseLocation.css" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\css\connexion.css" />
+        <Content Include="www/css/connexion.css" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\css\home.css" />
+        <Content Include="www/css/home.css" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\css\images\ajax-loader.gif" />
+        <Content Include="www/css/images/ajax-loader.gif" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\css\index.css" />
+        <Content Include="www/css/images/fond" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\css\jquery.mobile.min.css" />
+        <Content Include="www/css/index.css" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\css\start.css" />
+        <Content Include="www/css/jquery.mobile.min.css" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\img\logo.png" />
+        <Content Include="www/css/start.css" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\index.html" />
+        <Content Include="www/img/fond.png" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\js\appli.js" />
+        <Content Include="www/img/logo.png" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\js\index.js" />
+        <Content Include="www/index.html" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\js\jquery.cookie.js" />
+        <Content Include="www/js/appli.js" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\js\jquery.js" />
+        <Content Include="www/js/index.js" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\js\jquery.mobile.min.js" />
+        <Content Include="www/js/jquery.cookie.js" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\js\jquery.mobile.min.map" />
+        <Content Include="www/js/jquery.js" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\js\jquery.ui.map.extensions.js" />
+        <Content Include="www/js/jquery.mobile.min.js" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\js\jquery.ui.map.js" />
+        <Content Include="www/js/jquery.mobile.min.map" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www/js/jquery.ui.map.extensions.js" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www/js/jquery.ui.map.js" />
     </ItemGroup>
 </Project>

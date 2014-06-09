@@ -5,9 +5,10 @@
 		<link rel="stylesheet" type="text/css" href="/webroot/css/start.css">
 	</head>
 	<body>
+	<div id="bienvenu">Démarrer</div>
 		<div class='container'>
 			<form id='form' method='post' action='/startSession'>
-				<h1>Démarrer</h1>
+				
 				<input type='hidden' name='car_id' value=<%= car.id %>>
 				<input type='hidden' name='dateBegin' value="01:01:01T00:00">
 				<input type='hidden' name='locationX' value=<%= location.locationX %>>
