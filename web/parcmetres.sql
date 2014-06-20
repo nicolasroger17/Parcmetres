@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2014 at 10:58 PM
+-- Generation Time: Jun 20, 2014 at 11:38 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `lastName`, `firstName`, `emailAddress`, `address`, `zipCode`, `city`, `phone`, `password`, `credit`) VALUES
-(1, 'ROGER', 'Nicolas', 'test@isep.fr', '18 rue des quatre vents', 75006, 'Paris', '064564563', '7c4a8d09ca3762af61e59520943dc26494f8941b', 30);
+(1, 'Isep', 'Test', 'test@isep.fr', '18 rue de l''isep', 75006, 'Paris', '064564563', '7c4a8d09ca3762af61e59520943dc26494f8941b', 30);
 
 -- --------------------------------------------------------
 

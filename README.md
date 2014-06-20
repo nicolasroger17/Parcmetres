@@ -61,6 +61,12 @@ Parcmetres\police\www\js\index.js
 
 ## Utilisation
 
+## Identifiant par défaut
+
+login : test@isep.fr
+
+password : 123456
+
 ### Site Web
 
 Se déplacer dans le dossier Parcmetres/web
