@@ -1,11 +1,12 @@
 <html>
 <head>
 	<title>Start</title>
-	<link rel="stylesheet" type="text/css" href="webroot/css/start.css">
+	<link rel="stylesheet" type="text/css" href="webroot/css/chooseCar.css">
 </head>
 <body>
+<div id="bienvenu">Choisissez votre voiture</div>
 	<div class="container">
-	<h1>Choisissez votre voiture</h1>
+	
 	<% for(var i = 0; i < cars.length; i++) {%>
 		<div class='car'>
 			<img src='/webroot/images/<%= cars[i].id %>/photo.jpg'>

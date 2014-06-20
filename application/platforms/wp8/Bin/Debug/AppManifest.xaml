@@ -1,5 +1,0 @@
-﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="com.nicolasroger17.parcmetres" EntryPointType="com.nicolasroger17.parcmetres.App" RuntimeVersion="4.7.50308.0">
-  <Deployment.Parts>
-    <AssemblyPart x:Name="com.nicolasroger17.parcmetres" Source="com.nicolasroger17.parcmetres.dll" />
-  </Deployment.Parts>
-</Deployment>
