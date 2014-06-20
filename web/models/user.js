@@ -6,7 +6,7 @@ var conf = require('../config/conf.js')(),
 var myInformations = function(req, res){
 	req.models.user.get(req.session.sessionID, function(err, result){
 		if(!err){
-			res.render('user/myInformations', {user : result});
+			res.render('user/myInformations', {firstName: req.session.firstName, lastName: req.session.lastName, user : result});
 		}
 		else{
 			res.writeHead(301, {Location: '/home'});

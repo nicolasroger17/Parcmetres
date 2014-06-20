@@ -1,9 +1,12 @@
 #header{
+	position: fixed;
+	top: 0;
+	width: 100%;
 	background: #3498DB;
 	height: 60px;
 	margin-bottom: 40px;
+	z-index: 1;
 }
-
 #header a,
 #header p{
 	font-size: 20px;
@@ -15,13 +18,26 @@
 	margin-left: 20px;
 	line-height: 21px;
 }
+.home{
+	color: white;
+	padding: 0 40px;
+	text-decoration: none;
+	line-height: 60px;
+	display: block;
+	margin: auto;
+	width: 60px;
+}
 #header_right{
 	float: right;
   	color: white;
 	padding: 0 20px;
 	text-decoration: none;
 	line-height: 60px;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
+.home:hover,
 #header_right:hover{
 	background: white;
 	color: #3498DB;

@@ -23,7 +23,7 @@ module.exports.controller = function(app) {
 
 	app.get('/addCar', function(req, res) {
 		if(req.session.sessionID){
-			res.render('cars/addCar');
+			res.render('cars/addCar', {firstName: req.session.firstName, lastName: req.session.lastName});
 			app.post('/addCar', express.multipart(), function(req, res) {
 				model.addCar(req, res);
 			});

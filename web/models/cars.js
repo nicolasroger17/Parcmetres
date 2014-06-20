@@ -16,7 +16,7 @@ connection.connect();
 
 var addCar = function(req, res){
 	req.models.car.create(req.body, function(err, result){
-		if(!err){
+		if(!err && req.body.name != ""){
 			// ORM doesn't work with this case
 			var query = connection.query('INSERT INTO user_cars (user_id, cars_id) VALUES(?, ?)', [req.session.sessionID, req.body.id], function(err, result) {
 				// sets the directory for the images
@@ -50,7 +50,7 @@ var myCars = function(req, res){
 	req.models.user.get(req.session.sessionID, function(err, user){
 		user.getCars(function(err, result){
 			if(!err){
-				res.render('cars/myCars', {cars: result});
+				res.render('cars/myCars', {firstName: req.session.firstName, lastName: req.session.lastName, cars: result});
 			}
 			else{
 				res.writeHead(301, {Location: '/home'});

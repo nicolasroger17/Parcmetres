@@ -8,8 +8,13 @@
 	<body>
 		<%- include ../home/header.ejs %>
 		<div id="bienvenu">Mes voitures</div>
-			<div class='container'>
-				<% for(var i = 0; i < cars.length; i++) {%>
+			<% if(cars.length == 0){ %>
+				<div class='container'>
+					<p class='noCar'>Vous n'avez aucune voiture</p>
+				</div>
+			<% } %>
+			<% for(var i = 0; i < cars.length; i++) {%>
+				<div class='container'>
 					<form class='carsForm' method='post' action='/modifyCar' enctype='multipart/form-data'>
 						<img style='width: 300px;' src='/webroot/images/<%= cars[i].id %>/photo.jpg' >
 						<input type='file' name='photo'>
@@ -23,10 +28,10 @@
 					<form method='post' action='/deleteCar'>
 						<input type='hidden' name='id' value=<%= cars[i].id %>>
 						<input type='submit' value='Supprimer'>
-					</form>				
-				<% } %>
-		</div>
-		<a href="/addCar">Ajouter une voiture</a>
+					</form>
+				</div>				
+			<% } %>
+		<a class='addCar' href="/addCar">Ajouter une voiture</a>
 		<script type="text/javascript" src='/webroot/js/jquery.js'></script>
 		<script type="text/javascript" src='/webroot/js/myCars.js'></script>
 	</body>
