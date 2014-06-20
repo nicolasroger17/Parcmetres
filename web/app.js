@@ -5,8 +5,7 @@ var express = require('express'),
     server = require('http'),
     ent = require('ent'), // Permet de bloquer les caractères HTML (sécurité équivalente à htmlentities en PHP)
     fs = require('fs'),
-    conf = require('./config/conf.js')(),
-    parked = require('./models/parked');
+    conf = require('./config/conf.js')();
 
 app.set('port', process.env.PORT || 8080) // défini le port du serveur
 .use('/webroot', express.static(__dirname + '/webroot')) // rend le dossier webroot public
@@ -23,7 +22,7 @@ app.set('port', process.env.PORT || 8080) // défini le port du serveur
          zipCode      : Number,
          phone        : String,
          password     : String,
-         credit       : double
+         credit       : Number
       },
       {
          id: ['id'],

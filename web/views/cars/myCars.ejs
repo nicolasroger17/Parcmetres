@@ -7,7 +7,6 @@
 	<body>
 	<div id="bienvenu">Mes voitures</div>
 		<div class='container'>
-			
 			<% for(var i = 0; i < cars.length; i++) {%>
 				<form class='carsForm' method='post' action='/modifyCar' enctype='multipart/form-data'>
 					<img style='width: 300px;' src='/webroot/images/<%= cars[i].id %>/photo.jpg' >
@@ -25,6 +24,7 @@
 				</form>				
 			<% } %>
 		</div>
+		<a href="/addCar">Ajouter une voiture</a>
 		<script type="text/javascript" src='/webroot/js/jquery.js'></script>
 		<script type="text/javascript" src='/webroot/js/myCars.js'></script>
 	</body>
