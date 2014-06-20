@@ -1,7 +1,32 @@
 # Parcmetres
 
-Application pour le génie logiciel
+## Présentation
 
+Projet portant sur une application permettant de payer son parcmètre depuis son téléphone
+
+### Contenu
+
+Ce projet contient un site web et deux applications
+
+### Technologies utilisées
+
+### Serveur : NodeJS
+
+La partie serveur est utilise le NodeJS
+
+Nous avons utilisé le framework express, la gestion de la base de données
+se fait en utilisant l'ORM de NodeJS : node-orm2
+https://github.com/dresende/node-orm2
+
+### Clients : Html, Javascript/Jquery, Css
+
+Le site web ainsi que les applications sont basés sur l'html, le javascript en utilisant le framework
+Jquery et le css.
+
+### Applications
+
+Les applications sont générées à partir de Cordova
+Cordova permet de compiler des applications pour la plupart des OS de smartphone.
 
 ## Pré-requis
 
@@ -63,3 +88,11 @@ https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeac
 Nous avons essayer de générer les applications mais une erreur avec Ant d'apache nous a empêcher de les 
 re-compiler avec les dernières versions des applications. C'est pourquoi nous préconisons l'utilisations 
 de cordova pour simuler les applications sur un navigateur.
+
+## Fonctionnalités non implémenter
+
+Le projet portant sur l'utilisation du nodeJS, la gestion du crédit qui aurait nécessité l'utilisation d'une API telle
+que PayPal n'a pas été développé.
+
+La géolocalisation à partir d'un code présent sur le parcmètre en cas de problème de localisation n'a pas été développé
+car sa conception requiert une étude très poussée.
