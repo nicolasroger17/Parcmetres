@@ -208,19 +208,10 @@
         <Content Include="www\cordova_plugins.js" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\css\chooseCar.css" />
-    </ItemGroup>
-    <ItemGroup>
-        <Content Include="www\css\chooseLocation.css" />
-    </ItemGroup>
-    <ItemGroup>
-        <Content Include="www\css\connexion.css" />
-    </ItemGroup>
-    <ItemGroup>
-        <Content Include="www\css\home.css" />
-    </ItemGroup>
-    <ItemGroup>
         <Content Include="www\css\images\ajax-loader.gif" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\css\images\fond" />
     </ItemGroup>
     <ItemGroup>
         <Content Include="www\css\index.css" />
@@ -229,7 +220,7 @@
         <Content Include="www\css\jquery.mobile.min.css" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\css\start.css" />
+        <Content Include="www\img\fond.png" />
     </ItemGroup>
     <ItemGroup>
         <Content Include="www\img\logo.png" />

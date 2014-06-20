@@ -5,3 +5,72 @@ body {
     background: url("../img/fond.png");
 }
 
+/*logo*/
+.img-logo{
+	width: 137px;
+    height: 93px;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+/*connexion*/
+.connexionForm{
+	height: 50%;
+    width: 50%;
+    text-align: center;
+}
+
+a{
+	text-align: center;
+	display: block;
+}
+
+/*home*/
+#myInformationsBtn,
+#myCarsBtn,
+#chooseCarBtn {
+	margin: auto;
+	color: black;
+	background-color: white;
+	width: 25%;
+	text-shadow: none;
+	border-color: black;
+}
+
+/*chooseCar*/
+#chooseCarBtn {
+	margin: auto;
+	color: black;
+	text-shadow: none;
+}
+
+#chooseCarBtn[parked="true"] {
+	background-color: #843839;
+}
+
+#chooseCarBtn[parked="false"] {
+	background-color: #ccbdbd;
+}
+
+/*chooseLocation*/
+/*#chooseLocation,
+#home,
+#chooseCar,
+#myInformations,
+#myCars,
+#start,
+#connexion*/
+div[data-role="page"]{
+	width: 50%;
+	height: 50%;
+}
+
+#myInformations {
+	background-color: white;
+}
