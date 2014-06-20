@@ -1,5 +1,3 @@
-# Parcmetres
-
 ## Présentation
 
 Projet portant sur une application permettant de payer son parcmètre depuis son téléphone
