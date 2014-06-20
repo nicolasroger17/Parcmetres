@@ -31,12 +31,12 @@ var app = {
         $("#myInformationsBtn").click(function(){myInformations();});
         modifyMyInformations();
         $("#myCarsBtn").click(function(){myCars();});
-        $("#chooseCar").click(function(){
+        $("#chooseCarBtn").click(function(){
             if($(this).attr("parked")=="false"){
                 chooseCar();
             }
             else{
-                stop();
+                stopParked();
             }            
         });
         chooseLocation();
@@ -107,12 +107,14 @@ function home(){
         },
         success: function(data) {
             if(data.amIParked){
-                $("#chooseCar").attr("parked", "true");
-                $("#chooseCar").html("Arrêter");
+                console.log("you are parked");
+                $("#chooseCarBtn").attr("parked", "true");
+                $("#chooseCarBtn").html("Arrêter");
             }
             else{
-                $("#chooseCar").attr("parked", "false");
-                $("#chooseCar").html("Démarrer");
+                console.log("you are NOT parked");
+                $("#chooseCarBtn").attr("parked", "false");
+                $("#chooseCarBtn").html("Démarrer");
             }
             location.href = "#home";
         }
@@ -258,7 +260,7 @@ function start(){
     });
 }
 
-function stop(){
+function stopParked(){
     $.ajax({
         type: "POST",
         url: serverIp+"appli/stop",
@@ -267,8 +269,8 @@ function stop(){
         },
         success: function(data) {
             if(!data.amIParked){
-                $("#chooseCar").attr("parked", "false");
-                $("#chooseCar").html("Démarrer");
+                $("#chooseCarBtn").attr("parked", "false");
+                $("#chooseCarBtn").html("Démarrer");
             }
         }
     });

@@ -36,8 +36,8 @@ a{
 #myCarsBtn,
 #chooseCarBtn {
 	margin: auto;
-	color: black;
-	background-color: white;
+	color: white;
+	background-color: #3498DB;
 	width: 25%;
 	text-shadow: none;
 	border-color: black;
@@ -46,29 +46,28 @@ a{
 /*chooseCar*/
 #chooseCarBtn {
 	margin: auto;
-	color: black;
+	color: white;
 	text-shadow: none;
 }
 
 #chooseCarBtn[parked="true"] {
-	background-color: #843839;
+	background-color: #E74C3C;
 }
 
 #chooseCarBtn[parked="false"] {
-	background-color: #ccbdbd;
+	background-color: #2ECC71;
 }
 
-/*chooseLocation*/
-/*#chooseLocation,
-#home,
-#chooseCar,
-#myInformations,
-#myCars,
-#start,
-#connexion*/
 div[data-role="page"]{
 	width: 50%;
 	height: 50%;
+}
+
+.myCars{
+	background-color: #edeff1;
+	width: 200px;
+	padding: 10px;
+	margin: auto;
 }
 
 #myInformations {

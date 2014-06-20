@@ -29,6 +29,8 @@ module.exports.controller = function(app) {
 	});
 
 	app.get('/stop', function(req, res) {
+		console.log("stop");
+		console.log(req.session.sessionID);
 		if(req.session.sessionID){
 			model.stop(req, res);
 		}

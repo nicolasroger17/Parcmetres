@@ -37,6 +37,12 @@ var amIParked = function(id, req, res){
 						console.log(err);
 						if(!err){
 							var isParked = result > 0;
+							if(isParked){
+								console.log("isParked");
+							}
+							else{
+								console.log("is not Parked");
+							}
 							res.json({amIParked: isParked});
 						}
 						else{
@@ -125,18 +131,21 @@ var startSession = function(id, req, res){
 }
 
 var stop = function(id, req, res){
-	req.models.user.get(id, function(err, result){
+	req.models.user.get(id, function(err, user){
+		console.log("stop 1");
 		console.log(err);
 		if(!err){
-			result.getCars(function(err, result){
+			user.getCars(function(err, cars){
+				console.log("stop 2");
 				console.log(err);
 				if(!err){
 					var jsonId = Array();
-					for(car in result){
-						jsonId.push({car_id : result[car].id});
+					for(car in cars){
+						jsonId.push({car_id : cars[car].id});
 					}
 					console.log(jsonId);
 					req.models.parked.find({or:jsonId}).remove(function(element){
+						console.log("all is removed");
 						res.json({amIParked: false});
 					});
 				}

@@ -1,0 +1,13 @@
+D:\wamp\www\Parcmetres\police\platforms\wp8\Bin\Debug\ApplicationIcon.png
+D:\wamp\www\Parcmetres\police\platforms\wp8\Bin\Debug\Background.png
+D:\wamp\www\Parcmetres\police\platforms\wp8\Bin\Debug\com.nicolasroger17.Police.dll
+D:\wamp\www\Parcmetres\police\platforms\wp8\Bin\Debug\com.nicolasroger17.Police.pdb
+D:\wamp\www\Parcmetres\police\platforms\wp8\Bin\Debug\AppManifest.xaml
+D:\wamp\www\Parcmetres\police\platforms\wp8\Bin\Debug\CordovaAppProj_Debug_AnyCPU.xap
+D:\wamp\www\Parcmetres\police\platforms\wp8\obj\Debug\App.g.cs
+D:\wamp\www\Parcmetres\police\platforms\wp8\obj\Debug\cordovalib\CordovaView.g.cs
+D:\wamp\www\Parcmetres\police\platforms\wp8\obj\Debug\MainPage.g.cs
+D:\wamp\www\Parcmetres\police\platforms\wp8\obj\Debug\com.nicolasroger17.Police.g.resources
+D:\wamp\www\Parcmetres\police\platforms\wp8\obj\Debug\com.nicolasroger17.Police.dll
+D:\wamp\www\Parcmetres\police\platforms\wp8\obj\Debug\com.nicolasroger17.Police.pdb
+D:\wamp\www\Parcmetres\police\platforms\wp8\obj\Debug\XapCacheFile.xml

@@ -7,7 +7,6 @@
 <body>
 	<%- include ../home/header.ejs %>
 	<div id="bienvenu">Choisissez votre voiture</div>
-	<div class="container">	
 		<% for(var i = 0; i < cars.length; i++) {%>
 			<div class='car'>
 				<img src='/webroot/images/<%= cars[i].id %>/photo.jpg'>
@@ -16,6 +15,5 @@
 				<a href='/chooseLocation?id=<%= cars[i].id %>'><input class='selectCar' type='button' name=<%= cars[i].name %> id=<%= cars[i].id %> value='sélectionner'></a>
 			</div>
 		<% } %>
-	</div>
 </body>
 </html>

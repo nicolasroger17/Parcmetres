@@ -1,6 +1,6 @@
-﻿<xapCache source="D:\wamp\www\Parcmetres\application\platforms\wp8\Bin\Debug\CordovaAppProj_Debug_AnyCPU.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="20/06/2014 17:58:31">
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\obj\Debug\com.nicolasroger17.parcmetres.dll" archivePath="com.nicolasroger17.parcmetres.dll" lastWriteTime="20/06/2014 17:58:28" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\config.xml" archivePath="config.xml" lastWriteTime="20/06/2014 17:58:15" />
+﻿<xapCache source="D:\wamp\www\Parcmetres\application\platforms\wp8\Bin\Debug\CordovaAppProj_Debug_AnyCPU.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="20/06/2014 22:45:58">
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\obj\Debug\com.nicolasroger17.parcmetres.dll" archivePath="com.nicolasroger17.parcmetres.dll" lastWriteTime="20/06/2014 22:45:57" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\config.xml" archivePath="config.xml" lastWriteTime="20/06/2014 22:45:56" />
   <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\Images\appbar.back.rest.png" archivePath="Images\appbar.back.rest.png" lastWriteTime="02/06/2014 23:48:44" />
   <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\Images\appbar.close.rest.png" archivePath="Images\appbar.close.rest.png" lastWriteTime="02/06/2014 23:48:44" />
   <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\Images\appbar.feature.video.rest.png" archivePath="Images\appbar.feature.video.rest.png" lastWriteTime="02/06/2014 23:48:44" />
@@ -8,25 +8,25 @@
   <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\Images\appbar.save.rest.png" archivePath="Images\appbar.save.rest.png" lastWriteTime="02/06/2014 23:48:44" />
   <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\Images\appbar.stop.rest.png" archivePath="Images\appbar.stop.rest.png" lastWriteTime="02/06/2014 23:48:44" />
   <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="02/06/2014 23:48:44" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\cordova.js" archivePath="www\cordova.js" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\cordova_plugins.js" archivePath="www\cordova_plugins.js" lastWriteTime="20/06/2014 17:58:15" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\css\images\ajax-loader.gif" archivePath="www\css\images\ajax-loader.gif" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\css\images\fond" archivePath="www\css\images\fond" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\css\index.css" archivePath="www\css\index.css" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\css\jquery.mobile.min.css" archivePath="www\css\jquery.mobile.min.css" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\img\fond.png" archivePath="www\img\fond.png" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\img\logo.png" archivePath="www\img\logo.png" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\index.html" archivePath="www\index.html" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\appli.js" archivePath="www\js\appli.js" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\index.js" archivePath="www\js\index.js" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\jquery.cookie.js" archivePath="www\js\jquery.cookie.js" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\jquery.js" archivePath="www\js\jquery.js" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\jquery.mobile.min.js" archivePath="www\js\jquery.mobile.min.js" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\jquery.mobile.min.map" archivePath="www\js\jquery.mobile.min.map" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\jquery.ui.map.extensions.js" archivePath="www\js\jquery.ui.map.extensions.js" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\jquery.ui.map.js" archivePath="www\js\jquery.ui.map.js" lastWriteTime="20/06/2014 17:58:14" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="20/06/2014 17:58:29" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\cordova.js" archivePath="www\cordova.js" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\cordova_plugins.js" archivePath="www\cordova_plugins.js" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\css\images\ajax-loader.gif" archivePath="www\css\images\ajax-loader.gif" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\css\images\fond" archivePath="www\css\images\fond" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\css\index.css" archivePath="www\css\index.css" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\css\jquery.mobile.min.css" archivePath="www\css\jquery.mobile.min.css" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\img\fond.png" archivePath="www\img\fond.png" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\img\logo.png" archivePath="www\img\logo.png" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\index.html" archivePath="www\index.html" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\appli.js" archivePath="www\js\appli.js" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\index.js" archivePath="www\js\index.js" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\jquery.cookie.js" archivePath="www\js\jquery.cookie.js" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\jquery.js" archivePath="www\js\jquery.js" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\jquery.mobile.min.js" archivePath="www\js\jquery.mobile.min.js" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\jquery.mobile.min.map" archivePath="www\js\jquery.mobile.min.map" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\jquery.ui.map.extensions.js" archivePath="www\js\jquery.ui.map.extensions.js" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\www\js\jquery.ui.map.js" archivePath="www\js\jquery.ui.map.js" lastWriteTime="20/06/2014 22:45:56" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="20/06/2014 22:45:58" />
   <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\Bin\Debug\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="02/06/2014 23:48:44" />
   <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\Bin\Debug\Background.png" archivePath="Background.png" lastWriteTime="02/06/2014 23:48:44" />
-  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\Bin\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="20/06/2014 17:58:31" />
+  <file source="D:\wamp\www\Parcmetres\application\platforms\wp8\Bin\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="20/06/2014 22:45:58" />
 </xapCache>

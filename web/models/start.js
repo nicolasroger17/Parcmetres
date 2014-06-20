@@ -11,7 +11,7 @@ var chooseCar = function(req, res){
 				console.log("car");
 				console.log(err);
 				if(!err){
-					res.render('start/chooseCar', {cars: result});
+					res.render('start/chooseCar', {firstName: req.session.firstName, lastName: req.session.lastName, cars: result});
 				}
 				else{
 					res.writeHead(301, {Location: '/home'});
@@ -33,7 +33,7 @@ var chooseLocation = function(req, res){
 				if(!err && user[0].id == req.session.sessionID){
 					car.getParked(function(err, parked){
 						if(!err && parked.length == 0){
-							res.render('start/chooseLocation', {car_id: req.query.id});
+							res.render('start/chooseLocation', {firstName: req.session.firstName, lastName: req.session.lastName, car_id: req.query.id});
 						}
 						else{
 							res.writeHead(301, {Location: '/home'});
@@ -70,7 +70,7 @@ var start = function(req, res){
 						console.log("parked");
 						console.log(err);
 						if(!err && parked.length == 0){
-							res.render('start/start', {user: user[0], car: car, location: location});
+							res.render('start/start', {firstName: req.session.firstName, lastName: req.session.lastName, user: user[0], car: car, location: location});
 						}
 						else{
 							res.writeHead(301, {Location: '/home'});
@@ -120,9 +120,11 @@ var startSession = function(req, res){
 
 var stop = function(req, res){
 	req.models.user.get(req.session.sessionID, function(err, result){
+		console.log("1");
 		console.log(err);
 		if(!err){
 			result.getCars(function(err, result){
+				console.log("2");
 				console.log(err);
 				if(!err){
 					var jsonId = Array();
