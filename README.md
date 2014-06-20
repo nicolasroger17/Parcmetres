@@ -95,7 +95,7 @@ Nous avons essayer de générer les applications mais une erreur avec Ant d'apac
 re-compiler avec les dernières versions des applications. C'est pourquoi nous préconisons l'utilisations 
 de cordova pour simuler les applications sur un navigateur.
 
-## Fonctionnalités non implémenter
+## Fonctionnalités non implémentées
 
 Le projet portant sur l'utilisation du nodeJS, la gestion du crédit qui aurait nécessité l'utilisation d'une API telle
 que PayPal n'a pas été développé.
