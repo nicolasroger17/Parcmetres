@@ -8,7 +8,7 @@ Projet portant sur une application permettant de payer son parcmètre depuis son
 
 Ce projet contient un site web et deux applications
 
-### Technologies utilisées
+## Technologies utilisées
 
 ### Serveur : NodeJS
 
