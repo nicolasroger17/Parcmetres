@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2014 at 01:21 PM
+-- Generation Time: Jun 20, 2014 at 10:58 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -37,7 +37,8 @@ CREATE TABLE IF NOT EXISTS `car` (
 --
 
 INSERT INTO `car` (`id`, `name`, `status`) VALUES
-('859AA966', 'ferrari', 'free');
+('859AA966', 'Bugatti', 'free'),
+('216fdf322', 'audi', 'free');
 
 -- --------------------------------------------------------
 
@@ -48,9 +49,9 @@ INSERT INTO `car` (`id`, `name`, `status`) VALUES
 CREATE TABLE IF NOT EXISTS `parked` (
   `car_id` varchar(10) CHARACTER SET utf8mb4 NOT NULL,
   `dateBegin` datetime NOT NULL,
-  `localPrice` int(10) NOT NULL,
-  `locationX` int(10) NOT NULL,
-  `locationY` int(10) NOT NULL
+  `localPrice` float NOT NULL,
+  `locationX` float NOT NULL,
+  `locationY` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -69,15 +70,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   `city` varchar(20) NOT NULL,
   `phone` varchar(12) NOT NULL,
   `password` varchar(40) NOT NULL,
+  `credit` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `lastName`, `firstName`, `emailAddress`, `address`, `zipCode`, `city`, `phone`, `password`) VALUES
-(1, 'ROGER', 'Nicolas', 'bellerauphon@hotmail.fr', '18 rue des quatre vents', 75006, 'Paris', '064564563', '7c4a8d09ca3762af61e59520943dc26494f8941b');
+INSERT INTO `user` (`id`, `lastName`, `firstName`, `emailAddress`, `address`, `zipCode`, `city`, `phone`, `password`, `credit`) VALUES
+(1, 'ROGER', 'Nicolas', 'test@isep.fr', '18 rue des quatre vents', 75006, 'Paris', '064564563', '7c4a8d09ca3762af61e59520943dc26494f8941b', 30);
 
 -- --------------------------------------------------------
 
@@ -90,14 +92,15 @@ CREATE TABLE IF NOT EXISTS `user_cars` (
   `user_id` int(10) NOT NULL,
   `cars_id` varchar(10) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `user_cars`
 --
 
 INSERT INTO `user_cars` (`id`, `user_id`, `cars_id`) VALUES
-(1, 1, '859AA966');
+(4, 1, '859AA966'),
+(5, 1, '216fdf322');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

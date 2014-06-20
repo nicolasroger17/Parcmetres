@@ -17,7 +17,7 @@
  * under the License.
  */
 
-var serverIp = "http://192.168.0.20:8080/";
+var serverIp = "http://localhost:8080/";
 var app = {
     // Application Constructor
     initialize: function() {

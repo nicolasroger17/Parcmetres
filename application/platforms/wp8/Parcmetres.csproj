@@ -226,9 +226,6 @@
         <Content Include="www\index.html" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\js\appli.js" />
-    </ItemGroup>
-    <ItemGroup>
         <Content Include="www\js\index.js" />
     </ItemGroup>
     <ItemGroup>
