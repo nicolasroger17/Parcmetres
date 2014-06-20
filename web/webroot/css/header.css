@@ -1,17 +1,28 @@
 #header{
-  background: rgb(0, 157, 255);
+	background: #3498DB;
 	height: 60px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 
+#header a,
+#header p{
+	font-size: 20px;
+	font-family: Helvetica;	
+}
 #header_left{
-	display: inline;
+	float: left;
+	color: white;
+	margin-left: 20px;
+	line-height: 21px;
 }
-
 #header_right{
-	display: inline-block;
 	float: right;
-  color: white;
-	padding-top: 20px;
-	padding-right: 10px;
+  	color: white;
+	padding: 0 20px;
+	text-decoration: none;
+	line-height: 60px;
+}
+#header_right:hover{
+	background: white;
+	color: #3498DB;
 }

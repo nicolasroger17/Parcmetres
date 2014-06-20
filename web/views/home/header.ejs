@@ -1,9 +1,4 @@
 <div id="header">
-	<div id="header_left">
-		<img style='width: 80px;' src='/webroot/images/king.jpeg' >
-	</div>
-	<div id="header_right">
-	Bonjour <%= firstName %> <%=lastName %>
-	<a href='/deconnexion'><span>Déconnexion</span></a>
-	</div>
+	<p id="header_left"><%= firstName %> <%=lastName %></p>
+	<a href='/deconnexion' id="header_right">Déconnexion</a>
 </div>

@@ -3,12 +3,13 @@
 	<head>
 		<title>Démarrer</title>
 		<link rel="stylesheet" type="text/css" href="/webroot/css/start.css">
+		<link rel="stylesheet" type="text/css" href="/webroot/css/header.css">
 	</head>
 	<body>
-	<div id="bienvenu">Démarrer</div>
+		<%- include ../home/header.ejs %>
+		<div id="bienvenu">Démarrer</div>
 		<div class='container'>
-			<form id='form' method='post' action='/startSession'>
-				
+			<form id='form' method='post' action='/startSession'>				
 				<input type='hidden' name='car_id' value=<%= car.id %>>
 				<input type='hidden' name='dateBegin' value="01:01:01T00:00">
 				<input type='hidden' name='locationX' value=<%= location.locationX %>>

@@ -3,8 +3,10 @@
 	<head>
 		<title>Ajouter une voiture</title>
 		<link rel="stylesheet" type="text/css" href="/webroot/css/addCar.css">
+		<link rel="stylesheet" type="text/css" href="/webroot/css/header.css">
 	</head>
 	<body>
+		<%- include ../home/header.ejs %>
 		<div class='container'>
 			<h1>Ajouter une voiture</h1>
 			<form method='post' action='/addCar' enctype="multipart/form-data">

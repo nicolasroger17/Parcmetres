@@ -1,121 +1,56 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
 body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-
-body{
 	background: rgb(233, 244, 244);
+  margin: 0;
 }
-
-
-
 #bienvenu{
-  position: relative;
-  background-color: rgb(0, 157, 255);
+  background-color: #3498DB;
   height: 60px;
+  line-height: 60px;
   width: 500px;
-  margin: 0 auto;
-  margin-top: 50px;
-  border: 2px solid rgb(0, 157, 255);
-  border-radius: 8px;
-  padding-right: 40px;
-  padding-left: 80px;
-  color: white;
   font-size: 35px;
   font-weight: bold;
-  font-family: Lato, Helvetica, Arial, sans-serif;
-  padding-top: 20px;
+  font-family: Helvetica;
+  border: 2px solid rgb(0, 157, 255);
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin: auto;
+  
 }
 
 #fonctions{
   position: relative;
-  width: 900px;
-  margin: 0 auto;
-  height: 100px;
+  width: 500px;
   margin: 0 auto;
   margin-top: 100px;
 }
 
-#monCompte{
-  position: relative;
-  width: 300px;
-  height: 50px;
-  margin: 0 auto;
+.bigButton{
+  width: 200px;
+  font-family: Helvetica, Arial, sans-serif;
   display: inline-block;
-  border: 2px solid grey;
-  margin-left: 120px;
-  font-family: Lato, Helvetica, Arial, sans-serif;  
+  border: 2px solid #2980B9;
   font-size: 20px;
   font-weight: bold;
-  cursor: pointer;
   border-radius: 9px;
-  padding-top: 30px;
-  text-align: center
+  padding: 10px;
+  text-align: center;
+  background: white;
+  text-decoration: none;
+  line-height: 50px;
+  color: #2980B9;
 }
 
-#monCompte p{
-  text-decoration: none;
-  color: grey;
+.bigButton:hover{
+  background: #ECF0F1;
+  color: #3498DB;
 }
 
 #mesVoitures{
-  position: relative;
-  width: 300px;
-  height: 50px;
-  margin: 0 auto;
   margin-left: 50px;
-  display: inline-block;
-  border: 2px solid grey;
-  font-family: Lato, Helvetica, Arial, sans-serif;  
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 9px;
-  padding-top: 30px;
-  text-align: center;
 }
-
-#mesVoitures p{
+#monCompte p{
   text-decoration: none;
   color: grey;
 }
@@ -123,34 +58,32 @@ body{
 #demarrer{
   position: relative;
   width: 200px;
-  height: 60px;
+  height: 40px;
   margin: 0 auto;
   margin-top: 100px;
   cursor: pointer;
-  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 26px;
   font-weight: bold;
   border-radius: 9px;
-}
-
-#demarrer[isParked="true"]{
-  background-color: rgb(179, 24, 24);
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  padding: 20px;
   text-decoration: none;
+  display: block;
 }
 
 #demarrer[isParked="false"]{
-  background-color: rgb(32,113,95);
-  text-decoration: none;
+  background-color: #2ECC71;
+}
+#demarrer[isParked="false"]:hover{
+  background-color: #27AE60;
 }
 
-
-
-#demarrer a{
-  text-decoration: none;
-  color: white;
-  text-align: center;
-  line-height: 50px;
-  padding: 10px 20px;
-  padding-left: 43px;
-  text-decoration: none;
+#demarrer[isParked="true"]{
+  background-color: #E74C3C;
+}
+#demarrer[isParked="true"]:hover{
+  background-color: #C0392B;
 }

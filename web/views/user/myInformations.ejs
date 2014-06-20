@@ -2,11 +2,12 @@
 	<head>
 		<title>Mes informations</title>
 		<link rel="stylesheet" type="text/css" href="webroot/css/myInformations.css">
+		<link rel="stylesheet" type="text/css" href="/webroot/css/header.css">
 	</head>
 	<body>
-	<div id="bienvenu">Mes informations</div>
-		<div class='container'>
-			
+		<%- include ../home/header.ejs %>
+		<div id="bienvenu">Mes informations</div>
+		<div class='container'>			
 			<form id='inscriptionForm' method='post' action='/modifyMyInfos'>
 				<div id="rectangle">
 				<div id="sup"><label>Adresse mail</label></div>
@@ -53,7 +54,6 @@
 				
 				<input type='submit' value='Enregistrer'>
 			</form>
-			
 		</div>
 		<script type="text/javascript" src='/webroot/js/jquery.js'></script>
 		<script type="text/javascript" src='/webroot/js/inscription.js'></script>

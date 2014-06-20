@@ -10,16 +10,10 @@
 			Bienvenue sur Payetonpark
 		</div>
 		<div id="fonctions">
-			<div id="monCompte" onclick="location.href='/myInformations';">
-				<p>Mon compte</p>
-			</div>
-			<div id="mesVoitures" onclick="location.href='/myCars';">
-				<p>Gérer mes voitures</p>
-			</div>
+			<a class='bigButton' id="monCompte" href="/myInformations">Mon compte</a>
+			<a class='bigButton' id="mesVoitures" href="/myCars">Gérer mes voitures</a>
 		</div>
-		<div id="demarrer" isParked=<%= isParked %>>
-			<p><a href='/<%= isParked?'stop' : 'chooseCar' %>'><%= isParked?'Arrêter' : 'Démarrer' %></a></p>
-		</div>
+		<a id="demarrer" isParked=<%= isParked %> href='/<%= isParked?'stop' : 'chooseCar' %>'><%= isParked?'Arrêter' : 'Démarrer' %>
 		<script type="text/javascript" src='webroot/js/jquery.js'></script>
 	</body>
 </html>

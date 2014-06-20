@@ -1,18 +1,25 @@
 body{
-	background: rgb(0, 157, 255);
+	background: #3498DB;
 }
 .container{
 	width: 450px;
+	height: 350px;
 	margin: auto;
-	margin-top: 40px;
 	padding-top: 5px;
 	padding-bottom: 25px;
 	background: white;
 	border-radius: 10px;
 	background-color: #edeff1;
+
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 }
 h1{
-	color: rgb(0, 157, 255);
+	color: #3498DB;
 	text-align: center;
 }
 input{
@@ -40,6 +47,7 @@ input[type='submit']{
 	padding: 11px;
 	display: block;
 	margin-top: 10px;
+	cursor: pointer;
 }
 
 a{
@@ -48,6 +56,7 @@ a{
 	text-align: center;
 	cursor: pointer;
 	padding-top: 9px;
+	margin-top: 16px;
 }
 
 .login-form .login-field-icon {
